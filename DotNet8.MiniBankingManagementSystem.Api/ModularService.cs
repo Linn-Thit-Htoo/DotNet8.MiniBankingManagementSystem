@@ -24,11 +24,15 @@ public static class ModularService
 
     #endregion
 
+    #region AddDataAccessServices
+
     public static IServiceCollection AddDataAccessServices(this IServiceCollection services)
     {
         services.AddScoped<DA_Account>();
         return services;
     }
+
+    #endregion
 
     public static IServiceCollection AddDbContextServices(this IServiceCollection services, WebApplicationBuilder builder)
     {
