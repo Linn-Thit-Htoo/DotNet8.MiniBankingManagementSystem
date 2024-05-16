@@ -6,6 +6,8 @@ namespace DotNet8.MiniBankingManagementSystem.Api;
 
 public static class ModularService
 {
+    #region AddServices
+
     public static IServiceCollection AddServices(this IServiceCollection services, WebApplicationBuilder builder)
     {
         services.AddDbContextServices(builder);
@@ -13,6 +15,8 @@ public static class ModularService
         services.AddBusinessLogicServices();
         return services;
     }
+
+    #endregion
 
     #region AddBusinessLogicServices
 
