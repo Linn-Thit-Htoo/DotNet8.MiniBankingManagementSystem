@@ -7,5 +7,7 @@ namespace DotNet8.MiniBankingManagementSystem.Api.Data
         public AppDbContext(DbContextOptions options) : base(options)
         {
         }
+
+
     }
 }
