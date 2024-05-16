@@ -4,12 +4,16 @@ namespace DotNet8.MiniBankingManagementSystem.Api.Features.Account;
 
 public class BL_Account
 {
+    #region Initializations
+
     private readonly DA_Account _dA_Account;
 
     public BL_Account(DA_Account dA_Account)
     {
         _dA_Account = dA_Account;
     }
+
+    #endregion
 
     #region GetAccountListAsync
 
