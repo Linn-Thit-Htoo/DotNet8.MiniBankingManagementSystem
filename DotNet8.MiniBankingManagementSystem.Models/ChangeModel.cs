@@ -27,7 +27,7 @@ public static class ChangeModel
         {
             AccountNo = Ulid.NewUlid().ToString(),
             AccountLevel = requestModel.AccountLevel,
-            CustomerCode = requestModel.CustomerCode,
+            CustomerCode = requestModel.CustomerCode!,
             CustomerName = requestModel.CustomerName,
             Balance = requestModel.Balance,
             StateCode = requestModel.StateCode,
