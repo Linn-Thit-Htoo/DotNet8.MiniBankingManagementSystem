@@ -7,12 +7,16 @@ namespace DotNet8.MiniBankingManagementSystem.Api.Features.Account;
 
 public class DA_Account
 {
+    #region Initializations
+
     private readonly AppDbContext _context;
 
     public DA_Account(AppDbContext context)
     {
         _context = context;
     }
+
+    #endregion
 
     #region GetAccountListAsync
 
