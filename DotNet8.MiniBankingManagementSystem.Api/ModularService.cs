@@ -34,6 +34,8 @@ public static class ModularService
 
     #endregion
 
+    #region AddDbContextServices
+
     public static IServiceCollection AddDbContextServices(this IServiceCollection services, WebApplicationBuilder builder)
     {
         builder.Services.AddDbContext<AppDbContext>(opt =>
@@ -42,4 +44,6 @@ public static class ModularService
         }, ServiceLifetime.Transient, ServiceLifetime.Transient);
         return services;
     }
+
+    #endregion
 }
