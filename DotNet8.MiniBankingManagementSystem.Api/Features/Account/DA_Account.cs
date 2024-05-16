@@ -14,6 +14,8 @@ public class DA_Account
         _context = context;
     }
 
+    #region GetAccountListAsync
+
     public async Task<AccountListResponseModel> GetAccountListAsync()
     {
         try
@@ -35,6 +37,10 @@ public class DA_Account
         }
     }
 
+    #endregion
+
+    #region CreateAccount
+
     public async Task<int> CreateAccount(AccountRequestModel requestModel)
     {
         try
@@ -51,6 +57,8 @@ public class DA_Account
             throw new Exception(ex.Message);
         }
     }
+
+    #endregion
 
     #region Generate Customer Code
 
