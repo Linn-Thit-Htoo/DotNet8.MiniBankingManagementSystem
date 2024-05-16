@@ -52,6 +52,8 @@ public class DA_Account
         }
     }
 
+    #region Generate Customer Code
+
     private async Task<string> GenerateCustomerCodeAsync()
     {
         var latestCustomerCode = await _context.Tbl_Account
@@ -74,5 +76,7 @@ public class DA_Account
 
         return newCustomerCode;
     }
+
+    #endregion
 
 }
