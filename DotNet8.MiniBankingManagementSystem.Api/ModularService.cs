@@ -14,11 +14,15 @@ public static class ModularService
         return services;
     }
 
+    #region AddBusinessLogicServices
+
     public static IServiceCollection AddBusinessLogicServices(this IServiceCollection services)
     {
         services.AddScoped<BL_Account>();
         return services;
     }
+
+    #endregion
 
     public static IServiceCollection AddDataAccessServices(this IServiceCollection services)
     {
