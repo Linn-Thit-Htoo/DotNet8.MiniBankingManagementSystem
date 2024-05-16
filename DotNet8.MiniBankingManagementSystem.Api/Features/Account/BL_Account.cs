@@ -11,10 +11,16 @@ public class BL_Account
         _dA_Account = dA_Account;
     }
 
+    #region GetAccountListAsync
+
     public async Task<AccountListResponseModel> GetAccountListAsync()
     {
         return await _dA_Account.GetAccountListAsync();
     }
+
+    #endregion
+
+    #region CreateAccount
 
     public async Task<int> CreateAccount(AccountRequestModel requestModel)
     {
@@ -36,4 +42,6 @@ public class BL_Account
 
         return result;
     }
+
+    #endregion
 }
