@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace DotNet8.MiniBankingManagementSystem.Api.Data
+namespace DotNet8.MiniBankingManagementSystem.DbService.Models
 {
     public class AppDbContext : DbContext
     {
@@ -8,6 +8,6 @@ namespace DotNet8.MiniBankingManagementSystem.Api.Data
         {
         }
 
-
+        public DbSet<Tbl_Account> Tbl_Account { get; set; }
     }
 }
