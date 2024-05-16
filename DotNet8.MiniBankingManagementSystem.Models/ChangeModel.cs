@@ -5,6 +5,8 @@ namespace DotNet8.MiniBankingManagementSystem.Models;
 
 public static class ChangeModel
 {
+    #region Account
+
     public static AccountModel Change(this Tbl_Account dataModel)
     {
         return new AccountModel()
@@ -35,4 +37,6 @@ public static class ChangeModel
             IsActive = true
         };
     }
+
+    #endregion
 }
