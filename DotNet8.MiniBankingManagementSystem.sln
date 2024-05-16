@@ -3,11 +3,16 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.34902.84
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNet8.MiniBankingManagementSystem.Api", "DotNet8.MiniBankingManagementSystem.Api\DotNet8.MiniBankingManagementSystem.Api.csproj", "{66F4DF34-EF6F-4128-A0E9-605EBBAEC5B5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNet8.MiniBankingManagementSystem.Api", "DotNet8.MiniBankingManagementSystem.Api\DotNet8.MiniBankingManagementSystem.Api.csproj", "{66F4DF34-EF6F-4128-A0E9-605EBBAEC5B5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNet8.MiniBankingManagementSystem.DbService", "DotNet8.MiniBankingManagementSystem.DbService\DotNet8.MiniBankingManagementSystem.DbService.csproj", "{B00997A4-D810-43D2-AC37-0B0D8F96DFF2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNet8.MiniBankingManagementSystem.DbService", "DotNet8.MiniBankingManagementSystem.DbService\DotNet8.MiniBankingManagementSystem.DbService.csproj", "{B00997A4-D810-43D2-AC37-0B0D8F96DFF2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNet8.MiniBankingManagementSystem.Models", "DotNet8.MiniBankingManagementSystem.Models\DotNet8.MiniBankingManagementSystem.Models.csproj", "{74608756-B195-4D3C-AE28-107F774ACA95}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNet8.MiniBankingManagementSystem.Models", "DotNet8.MiniBankingManagementSystem.Models\DotNet8.MiniBankingManagementSystem.Models.csproj", "{74608756-B195-4D3C-AE28-107F774ACA95}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documents", "Documents", "{19DDAF28-03BD-4624-B2AA-C49837934081}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\Database backups\MiniBankingManagementSystemScript.sql = ..\..\Database backups\MiniBankingManagementSystemScript.sql
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
