@@ -15,6 +15,7 @@ public class DA_Deposit
     {
         _appDbContext = appDbContext;
     }
+
     #endregion
 
     #region GetDepositListByAccountNoAsync
