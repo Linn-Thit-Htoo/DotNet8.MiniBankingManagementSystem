@@ -6,13 +6,14 @@ public class BL_Township
 {
     #region Initializations
 
-    #endregion
     private readonly DA_Township _dA_Township;
 
     public BL_Township(DA_Township dA_Township)
     {
         _dA_Township = dA_Township;
     }
+
+    #endregion
 
     #region GetTownshipListAsync
 
