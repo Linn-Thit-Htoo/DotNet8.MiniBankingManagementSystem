@@ -42,6 +42,7 @@ public static class ChangeModel
 
     #endregion
 
+
     public static StateModel Change(this Tbl_State dataModel)
     {
         return new StateModel()
