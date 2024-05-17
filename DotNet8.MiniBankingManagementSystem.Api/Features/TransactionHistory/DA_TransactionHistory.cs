@@ -7,6 +7,9 @@ namespace DotNet8.MiniBankingManagementSystem.Api.Features.TransactionHistory;
 
 public class DA_TransactionHistory
 {
+    #region MyRegion
+
+    #endregion
     private readonly AppDbContext _appDbContext;
 
     public DA_TransactionHistory(AppDbContext appDbContext)
