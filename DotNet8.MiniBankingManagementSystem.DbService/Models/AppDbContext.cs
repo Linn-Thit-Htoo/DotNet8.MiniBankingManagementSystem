@@ -9,5 +9,6 @@ namespace DotNet8.MiniBankingManagementSystem.DbService.Models
         }
 
         public DbSet<Tbl_Account> Tbl_Account { get; set; }
+        public DbSet<Tbl_State> Tbl_State { get; set; }
     }
 }

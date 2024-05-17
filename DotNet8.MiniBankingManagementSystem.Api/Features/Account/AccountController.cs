@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace DotNet8.MiniBankingManagementSystem.Api.Features.Account;
 
-[Route("api/[controller]")]
+[Route("api/v1/accounts")]
 [ApiController]
 public class AccountController : ControllerBase
 {

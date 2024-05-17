@@ -1,5 +1,6 @@
 ﻿using DotNet8.MiniBankingManagementSystem.DbService.Models;
 using DotNet8.MiniBankingManagementSystem.Models.Setup.Account;
+using DotNet8.MiniBankingManagementSystem.Models.Setup.State;
 
 namespace DotNet8.MiniBankingManagementSystem.Models;
 
@@ -39,4 +40,14 @@ public static class ChangeModel
     }
 
     #endregion
+
+    public static StateModel Change(this Tbl_State dataModel)
+    {
+        return new StateModel()
+        {
+            StateId = dataModel.StateId,
+            StateCode = dataModel.StateCode,
+            StateName = dataModel.StateName
+        };
+    }
 }
