@@ -9,13 +9,13 @@ public class DA_TransactionHistory
 {
     #region Initializations
 
-    #endregion
     private readonly AppDbContext _appDbContext;
 
     public DA_TransactionHistory(AppDbContext appDbContext)
     {
         _appDbContext = appDbContext;
     }
+    #endregion
 
     #region GetTransactionHistoryListByAccountNoAsync
 
