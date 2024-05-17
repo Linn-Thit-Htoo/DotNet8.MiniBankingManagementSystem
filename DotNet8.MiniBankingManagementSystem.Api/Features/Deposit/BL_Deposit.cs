@@ -25,7 +25,6 @@ public class BL_Deposit
 
     #region CreateDepositAsync
 
-    #endregion
     public async Task<bool> CreateDepositAsync(DepositRequestModel requestModel)
     {
         if (string.IsNullOrWhiteSpace(requestModel.AccountNo))
@@ -37,4 +36,5 @@ public class BL_Deposit
         bool isSuccess = await _dA_Deposit.CreateDepositAsync(requestModel);
         return isSuccess;
     }
+    #endregion
 }
