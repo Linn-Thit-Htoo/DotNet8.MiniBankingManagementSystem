@@ -2,7 +2,6 @@
 using DotNet8.MiniBankingManagementSystem.Models;
 using DotNet8.MiniBankingManagementSystem.Models.Setup.Deposit;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Identity.Client;
 
 namespace DotNet8.MiniBankingManagementSystem.Api.Features.Deposit;
 
