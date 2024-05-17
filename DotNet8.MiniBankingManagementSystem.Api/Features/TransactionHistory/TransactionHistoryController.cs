@@ -16,7 +16,6 @@ public class TransactionHistoryController : ControllerBase
 
     #region GetTransactionListByAccountNo
 
-    #endregion
     [HttpGet]
     public async Task<IActionResult> GetTransactionListByAccountNo(string accountNo)
     {
@@ -29,6 +28,7 @@ public class TransactionHistoryController : ControllerBase
             throw new Exception(ex.Message);
         }
     }
+    #endregion
 
     [HttpPost]
     public async Task<IActionResult> CreateTransaction([FromBody] TransactionRequestModel requestModel)
