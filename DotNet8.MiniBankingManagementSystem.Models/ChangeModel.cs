@@ -1,5 +1,6 @@
 ﻿using DotNet8.MiniBankingManagementSystem.DbService.Models;
 using DotNet8.MiniBankingManagementSystem.Models.Setup.Account;
+using DotNet8.MiniBankingManagementSystem.Models.Setup.Deposit;
 using DotNet8.MiniBankingManagementSystem.Models.Setup.State;
 using DotNet8.MiniBankingManagementSystem.Models.Setup.Township;
 
@@ -65,4 +66,25 @@ public static class ChangeModel
     }
 
     #endregion
+
+    public static DepositModel Change(this Tbl_Deposit dataModel)
+    {
+        return new DepositModel()
+        {
+            DepositId = dataModel.DepositId,
+            AccountNo = dataModel.AccountNo,
+            Amount = dataModel.Amount,
+            DepositDate = dataModel.DepositDate
+        };
+    }
+
+    public static Tbl_Deposit Change(this DepositRequestModel requestModel)
+    {
+        return new Tbl_Deposit()
+        {
+            AccountNo = requestModel.AccountNo,
+            Amount = requestModel.Amount,
+            DepositDate = DateTime.Now
+        };
+    }
 }

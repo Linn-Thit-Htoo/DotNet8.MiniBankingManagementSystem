@@ -11,4 +11,5 @@ public class AppDbContext : DbContext
     public DbSet<Tbl_Account> Tbl_Account { get; set; }
     public DbSet<Tbl_State> Tbl_State { get; set; }
     public DbSet<Tbl_Township> Tbl_Township { get; set; }
+    public DbSet<Tbl_Deposit> Tbl_Deposit { get; set; }
 }

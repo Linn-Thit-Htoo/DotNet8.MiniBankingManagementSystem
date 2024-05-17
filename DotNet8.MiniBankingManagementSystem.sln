@@ -9,11 +9,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNet8.MiniBankingManageme
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNet8.MiniBankingManagementSystem.Models", "DotNet8.MiniBankingManagementSystem.Models\DotNet8.MiniBankingManagementSystem.Models.csproj", "{74608756-B195-4D3C-AE28-107F774ACA95}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documents", "Documents", "{19DDAF28-03BD-4624-B2AA-C49837934081}"
-	ProjectSection(SolutionItems) = preProject
-		..\..\Database backups\MiniBankingManagementSystemScript.sql = ..\..\Database backups\MiniBankingManagementSystemScript.sql
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
