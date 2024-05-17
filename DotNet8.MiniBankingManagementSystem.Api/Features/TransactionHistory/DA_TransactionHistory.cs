@@ -71,6 +71,8 @@ namespace DotNet8.MiniBankingManagementSystem.Api.Features.TransactionHistory
                 #endregion
 
                 // transaction history by today date by account no
+                #region Fetch Transaction History By today date by account no
+
                 var today = DateTime.Today;
                 var transactionHistory = await _appDbContext.Tbl_TransactionHistory
                     .AsNoTracking()
@@ -80,8 +82,9 @@ namespace DotNet8.MiniBankingManagementSystem.Api.Features.TransactionHistory
                 decimal totalTransactionAmount = 0;
                 transactionHistory.ForEach(x => totalTransactionAmount += x.Amount);
 
+                #endregion
 
-                // check limitation
+
                 decimal fromAccLevel = fromAccount.AccountLevel;
                 long limitedBalance = 0;
                 if (fromAccLevel == 1m)
