@@ -4,7 +4,7 @@ namespace DotNet8.MiniBankingManagementSystem.Api.Features.Township;
 
 public class BL_Township
 {
-    #region MyRegion
+    #region Initializations
 
     #endregion
     private readonly DA_Township _dA_Township;
