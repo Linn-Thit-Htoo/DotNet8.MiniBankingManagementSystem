@@ -49,6 +49,27 @@ public class DA_Account
     {
         try
         {
+            bool isStatePresent = await _context.Tbl_State
+                .AsNoTracking()
+                .AnyAsync(x => x.StateCode == requestModel.StateCode);
+            if (!isStatePresent)
+                throw new Exception("State does not exist.");
+
+            bool isTownshipPresent = await _context.Tbl_Township
+                .AsNoTracking()
+                .AnyAsync(x => x.TownshipCode == requestModel.TownshipCode);
+            if (!isTownshipPresent)
+                throw new Exception("Township does not exist.");
+
+            var townshipLst = await _context.Tbl_Township
+                .AsNoTracking()
+                .Where(x => x.StateCode == requestModel.StateCode)
+                .ToListAsync();
+
+            bool isTownshipValid = townshipLst.Any(township => township.TownshipCode == requestModel.TownshipCode);
+            if (!isTownshipValid)
+                throw new Exception("Township is invalid.");
+
             requestModel.CustomerCode = await GenerateCustomerCodeAsync();
             requestModel.AccountLevel = 1;
             await _context.Tbl_Account.AddAsync(requestModel.Change());
