@@ -11,21 +11,36 @@ namespace DotNet8.MiniBankingManagementSystem.Api;
 
 public static class ModularService
 {
-    #region AddServices
+    #region Add Services
 
     public static IServiceCollection AddServices(this IServiceCollection services, WebApplicationBuilder builder)
     {
-        services.AddDbContextServices(builder);
-        services.AddDataAccessServices();
-        services.AddBusinessLogicServices();
+        services
+            .AddJsonService()
+            .AddDbContextServices(builder)
+            .AddDataAccessServices()
+            .AddBusinessLogicServices();
         return services;
     }
 
     #endregion
 
-    #region AddBusinessLogicServices
+    #region Json Service
 
-    public static IServiceCollection AddBusinessLogicServices(this IServiceCollection services)
+    private static IServiceCollection AddJsonService(this IServiceCollection services)
+    {
+        services.AddControllers().AddJsonOptions(opt =>
+        {
+            opt.JsonSerializerOptions.PropertyNamingPolicy = null;
+        });
+        return services;
+    }
+
+    #endregion
+
+    #region Add Business Logic Services
+
+    private static IServiceCollection AddBusinessLogicServices(this IServiceCollection services)
     {
         services.AddScoped<BL_Account>();
         services.AddScoped<BL_State>();
@@ -38,9 +53,9 @@ public static class ModularService
 
     #endregion
 
-    #region AddDataAccessServices
+    #region Add Data Access Services
 
-    public static IServiceCollection AddDataAccessServices(this IServiceCollection services)
+    private static IServiceCollection AddDataAccessServices(this IServiceCollection services)
     {
         services.AddScoped<DA_Account>();
         services.AddScoped<DA_State>();
@@ -53,9 +68,9 @@ public static class ModularService
 
     #endregion
 
-    #region AddDbContextServices
+    #region Add DbContext Services
 
-    public static IServiceCollection AddDbContextServices(this IServiceCollection services, WebApplicationBuilder builder)
+    private static IServiceCollection AddDbContextServices(this IServiceCollection services, WebApplicationBuilder builder)
     {
         builder.Services.AddDbContext<AppDbContext>(opt =>
         {
