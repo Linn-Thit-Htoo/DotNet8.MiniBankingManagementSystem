@@ -4,6 +4,9 @@ namespace DotNet8.MiniBankingManagementSystem.Api.Features.Deposit;
 
 public class BL_Deposit
 {
+    #region Initializations
+
+    #endregion
     private readonly DA_Deposit _dA_Deposit;
 
     public BL_Deposit(DA_Deposit dA_Deposit)
