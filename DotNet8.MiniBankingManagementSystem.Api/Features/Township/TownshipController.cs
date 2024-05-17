@@ -30,7 +30,7 @@ namespace DotNet8.MiniBankingManagementSystem.Api.Features.Township
 
         #endregion
 
-        #region MyRegion
+        #region CreateTownshipList
 
         #endregion
         [HttpPost]
