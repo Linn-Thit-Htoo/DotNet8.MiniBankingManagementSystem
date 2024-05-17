@@ -7,6 +7,9 @@ namespace DotNet8.MiniBankingManagementSystem.Api.Features.Deposit;
 
 public class DA_Deposit
 {
+    #region Initializations
+
+    #endregion
     private readonly AppDbContext _appDbContext;
 
     public DA_Deposit(AppDbContext appDbContext)
