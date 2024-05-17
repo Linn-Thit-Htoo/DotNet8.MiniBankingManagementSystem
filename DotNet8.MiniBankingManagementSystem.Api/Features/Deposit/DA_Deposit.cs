@@ -16,7 +16,6 @@ public class DA_Deposit
 
     #region GetDepositListByAccountNoAsync
 
-    #endregion
     public async Task<DepositListResponseModel> GetDepositListByAccountNoAsync(string accountNo)
     {
         try
@@ -39,6 +38,7 @@ public class DA_Deposit
             throw new Exception(ex.Message);
         }
     }
+    #endregion
 
     public async Task<bool> CreateDepositAsync(DepositRequestModel requestModel)
     {
