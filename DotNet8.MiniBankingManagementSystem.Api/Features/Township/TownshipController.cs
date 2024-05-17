@@ -32,7 +32,6 @@ namespace DotNet8.MiniBankingManagementSystem.Api.Features.Township
 
         #region CreateTownshipList
 
-        #endregion
         [HttpPost]
         public async Task<IActionResult> CreateTownshipList()
         {
@@ -47,5 +46,6 @@ namespace DotNet8.MiniBankingManagementSystem.Api.Features.Township
                 throw new Exception(ex.Message);
             }
         }
+        #endregion
     }
 }
