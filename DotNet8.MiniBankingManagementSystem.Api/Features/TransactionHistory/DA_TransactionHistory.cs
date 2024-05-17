@@ -21,7 +21,8 @@ namespace DotNet8.MiniBankingManagementSystem.Api.Features.TransactionHistory
             {
                 var dataLst = await _appDbContext.Tbl_TransactionHistory
                     .AsNoTracking()
-                    .OrderByDescending(x => x.FromAccountNo == accountNo)
+                    .OrderByDescending(x => x.TransactionHistoryId)
+                    .Where(x => x.FromAccountNo == accountNo)
                     .ToListAsync();
 
                 var lst = dataLst.Select(x => x.Change()).ToList();
