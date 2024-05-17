@@ -9,13 +9,14 @@ public class DA_WithDraw
 {
     #region Initializations
 
-    #endregion
     private AppDbContext _appDbContext;
 
     public DA_WithDraw(AppDbContext appDbContext)
     {
         _appDbContext = appDbContext;
     }
+
+    #endregion
 
     #region GetWithDrawListByAccountNoAsync
 
