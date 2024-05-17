@@ -1,7 +1,5 @@
 ﻿using DotNet8.MiniBankingManagementSystem.Models.Setup.WithDraw;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Identity.Client;
 
 namespace DotNet8.MiniBankingManagementSystem.Api.Features.WithDraw;
 
