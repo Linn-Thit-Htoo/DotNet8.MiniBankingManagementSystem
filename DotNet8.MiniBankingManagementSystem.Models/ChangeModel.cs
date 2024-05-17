@@ -119,6 +119,9 @@ public static class ChangeModel
 
     #endregion
 
+    #region Transaction History
+
+    #endregion
     public static TransactionHistoryModel Change(this Tbl_TransactionHistory dataModel)
     {
         return new TransactionHistoryModel
