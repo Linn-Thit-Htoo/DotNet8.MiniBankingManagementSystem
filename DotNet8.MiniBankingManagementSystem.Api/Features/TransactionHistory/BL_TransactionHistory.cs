@@ -6,13 +6,13 @@ public class BL_TransactionHistory
 {
     #region Initializations
 
-    #endregion
     private readonly DA_TransactionHistory _dA_TransactionHistory;
 
     public BL_TransactionHistory(DA_TransactionHistory dA_TransactionHistory)
     {
         _dA_TransactionHistory = dA_TransactionHistory;
     }
+    #endregion
 
     #region GetTransactionHistoryListByAccountNoAsync
 
