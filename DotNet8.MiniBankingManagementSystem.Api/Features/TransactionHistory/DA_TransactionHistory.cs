@@ -84,6 +84,7 @@ namespace DotNet8.MiniBankingManagementSystem.Api.Features.TransactionHistory
 
                 #endregion
 
+                #region Check Account level limitation
 
                 decimal fromAccLevel = fromAccount.AccountLevel;
                 long limitedBalance = 0;
@@ -113,6 +114,8 @@ namespace DotNet8.MiniBankingManagementSystem.Api.Features.TransactionHistory
                         throw new Exception("You exceed the transfer limit for today.");
                     }
                 }
+
+                #endregion
 
                 // reduce from acc
                 decimal reducedFromAccountAmount = fromAccount.Balance - requestModel.Amount;
