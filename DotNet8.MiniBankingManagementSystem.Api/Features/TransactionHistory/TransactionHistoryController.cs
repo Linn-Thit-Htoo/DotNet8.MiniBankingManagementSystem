@@ -33,7 +33,6 @@ public class TransactionHistoryController : ControllerBase
 
     #region CreateTransaction
 
-    #endregion
     [HttpPost]
     public async Task<IActionResult> CreateTransaction([FromBody] TransactionRequestModel requestModel)
     {
@@ -46,4 +45,5 @@ public class TransactionHistoryController : ControllerBase
             throw new Exception(ex.Message);
         }
     }
+    #endregion
 }
