@@ -13,7 +13,6 @@ public class BL_TransactionHistory
 
     #region GetTransactionHistoryListByAccountNoAsync
 
-    #endregion
     public async Task<TransactionHistoryListResponseModel> GetTransactionHistoryListByAccountNoAsync(string accountNo)
     {
         if (string.IsNullOrWhiteSpace(accountNo))
@@ -21,6 +20,7 @@ public class BL_TransactionHistory
 
         return await _dA_TransactionHistory.GetTransactionHistoryListByAccountNoAsync(accountNo);
     }
+    #endregion
 
     public async Task<bool> CreateTransactionAsync(TransactionRequestModel requestModel)
     {
