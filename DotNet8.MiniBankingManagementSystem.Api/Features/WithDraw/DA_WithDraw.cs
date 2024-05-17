@@ -14,6 +14,9 @@ public class DA_WithDraw
         _appDbContext = appDbContext;
     }
 
+    #region GetWithDrawListByAccountNoAsync
+
+    #endregion
     public async Task<WithDrawListResponseModel> GetWithDrawListByAccountNoAsync(string accountNo)
     {
         try
