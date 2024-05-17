@@ -33,7 +33,6 @@ public class WithDrawController : ControllerBase
 
     #region CreateWithDraw
 
-    #endregion
     [HttpPost]
     public async Task<IActionResult> CreateWithDraw([FromBody] WithDrawRequestModel requestModel)
     {
@@ -46,4 +45,6 @@ public class WithDrawController : ControllerBase
             throw new Exception(ex.Message);
         }
     }
+
+    #endregion
 }
