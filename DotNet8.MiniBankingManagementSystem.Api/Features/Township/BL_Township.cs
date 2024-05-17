@@ -11,10 +11,14 @@ public class BL_Township
         _dA_Township = dA_Township;
     }
 
+    #region GetTownshipListAsync
+
     public async Task<TownshipResponseModel> GetTownshipListAsync()
     {
         return await _dA_Township.GetTownshipListAsync();
     }
+
+    #endregion
 
     public async Task<int> CreateTownshipListAsync()
     {
