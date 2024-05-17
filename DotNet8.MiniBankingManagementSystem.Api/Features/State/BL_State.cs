@@ -11,10 +11,14 @@ namespace DotNet8.MiniBankingManagementSystem.Api.Features.State
             _dA_State = dA_State;
         }
 
+        #region GetStateListAsync
+
         public async Task<StateListResponseModel> GetStateListAsync()
         {
             return await _dA_State.GetStateListAsync();
         }
+
+        #endregion
 
         public async Task<int> CreateStatesAsync()
         {
