@@ -34,6 +34,8 @@ namespace DotNet8.MiniBankingManagementSystem.Api.Features.State
 
         #endregion
 
+        #region CreateStatesAsync
+
         public async Task<int> CreateStatesAsync()
         {
             string jsonStr = await File.ReadAllTextAsync("Data/StateList.json");
@@ -43,5 +45,7 @@ namespace DotNet8.MiniBankingManagementSystem.Api.Features.State
 
             return result;
         }
+
+        #endregion
     }
 }
