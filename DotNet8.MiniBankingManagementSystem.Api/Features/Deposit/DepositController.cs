@@ -2,44 +2,43 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace DotNet8.MiniBankingManagementSystem.Api.Features.Deposit
+namespace DotNet8.MiniBankingManagementSystem.Api.Features.Deposit;
+
+[Route("api/v1/deposits")]
+[ApiController]
+public class DepositController : ControllerBase
 {
-    [Route("api/v1/deposits")]
-    [ApiController]
-    public class DepositController : ControllerBase
+    private readonly BL_Deposit _bL_Deposit;
+
+    public DepositController(BL_Deposit bL_Deposit)
     {
-        private readonly BL_Deposit _bL_Deposit;
+        _bL_Deposit = bL_Deposit;
+    }
 
-        public DepositController(BL_Deposit bL_Deposit)
+    [HttpGet]
+    public async Task<IActionResult> GetDepositListByAccountNo(string accountNo)
+    {
+        try
         {
-            _bL_Deposit = bL_Deposit;
+            return Ok(await _bL_Deposit.GetDepositListByAccountNoAsync(accountNo));
         }
-
-        [HttpGet]
-        public async Task<IActionResult> GetDepositListByAccountNo(string accountNo)
+        catch (Exception ex)
         {
-            try
-            {
-                return Ok(await _bL_Deposit.GetDepositListByAccountNoAsync(accountNo));
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
+            throw new Exception(ex.Message);
         }
+    }
 
-        [HttpPost]
-        public async Task<IActionResult> CreateDeposit([FromBody] DepositRequestModel requestModel)
+    [HttpPost]
+    public async Task<IActionResult> CreateDeposit([FromBody] DepositRequestModel requestModel)
+    {
+        try
         {
-            try
-            {
-                bool isSuccess = await _bL_Deposit.CreateDepositAsync(requestModel);
-                return isSuccess ? StatusCode(201, "Successful.") : BadRequest("Fail.");
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
+            bool isSuccess = await _bL_Deposit.CreateDepositAsync(requestModel);
+            return isSuccess ? StatusCode(201, "Successful.") : BadRequest("Fail.");
+        }
+        catch (Exception ex)
+        {
+            throw new Exception(ex.Message);
         }
     }
 }
