@@ -1,7 +1,4 @@
-﻿using DotNet8.MiniBankingManagementSystem.DbService.Models;
-using DotNet8.MiniBankingManagementSystem.Models;
-using DotNet8.MiniBankingManagementSystem.Models.Setup.Deposit;
-using Microsoft.EntityFrameworkCore;
+﻿using DotNet8.MiniBankingManagementSystem.Models.Setup.Deposit;
 
 namespace DotNet8.MiniBankingManagementSystem.Api.Features.Deposit;
 
@@ -24,7 +21,7 @@ public class DA_Deposit
     {
         try
         {
-            var depositLst = await _appDbContext.Tbl_Deposit
+            var depositLst = await _appDbContext.Deposits
                 .AsNoTracking()
                 .Where(x => x.AccountNo == accountNo)
                 .OrderByDescending(x => x.DepositId)
@@ -52,12 +49,12 @@ public class DA_Deposit
         var transaction = await _appDbContext.Database.BeginTransactionAsync();
         try
         {
-            var account = await _appDbContext.Tbl_Account
+            var account = await _appDbContext.Accounts
                 .AsNoTracking()
                 .FirstOrDefaultAsync(x => x.AccountNo == requestModel.AccountNo && x.IsActive)
                 ?? throw new Exception("Account Not Found or Inactive.");
 
-            await _appDbContext.Tbl_Deposit.AddAsync(requestModel.Change());
+            await _appDbContext.Deposits.AddAsync(requestModel.Change());
             int result = await _appDbContext.SaveChangesAsync();
 
             decimal oldBalance = account.Balance;

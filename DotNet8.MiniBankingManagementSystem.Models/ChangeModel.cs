@@ -12,7 +12,7 @@ public static class ChangeModel
 {
     #region Account
 
-    public static AccountModel Change(this Tbl_Account dataModel)
+    public static AccountModel Change(this Account dataModel)
     {
         return new AccountModel()
         {
@@ -28,9 +28,9 @@ public static class ChangeModel
         };
     }
 
-    public static Tbl_Account Change(this AccountRequestModel requestModel)
+    public static Account Change(this AccountRequestModel requestModel)
     {
-        return new Tbl_Account()
+        return new Account()
         {
             AccountNo = Ulid.NewUlid().ToString(),
             AccountLevel = requestModel.AccountLevel,
@@ -47,7 +47,7 @@ public static class ChangeModel
 
     #region State
 
-    public static StateModel Change(this Tbl_State dataModel)
+    public static StateModel Change(this State dataModel)
     {
         return new StateModel()
         {
@@ -57,7 +57,7 @@ public static class ChangeModel
         };
     }
 
-    public static TownshipModel Change(this Tbl_Township dataModel)
+    public static TownshipModel Change(this Township dataModel)
     {
         return new TownshipModel()
         {
@@ -71,7 +71,7 @@ public static class ChangeModel
 
     #region Deposit
 
-    public static DepositModel Change(this Tbl_Deposit dataModel)
+    public static DepositModel Change(this Deposit dataModel)
     {
         return new DepositModel()
         {
@@ -82,9 +82,9 @@ public static class ChangeModel
         };
     }
 
-    public static Tbl_Deposit Change(this DepositRequestModel requestModel)
+    public static Deposit Change(this DepositRequestModel requestModel)
     {
-        return new Tbl_Deposit()
+        return new Deposit()
         {
             AccountNo = requestModel.AccountNo,
             Amount = requestModel.Amount,
@@ -96,7 +96,7 @@ public static class ChangeModel
 
     #region WithDraw
 
-    public static WithDrawModel Change(this Tbl_WithDraw dataModel)
+    public static WithDrawModel Change(this Withdraw dataModel)
     {
         return new WithDrawModel()
         {
@@ -107,9 +107,9 @@ public static class ChangeModel
         };
     }
 
-    public static Tbl_WithDraw Change(this WithDrawRequestModel requestModel)
+    public static Withdraw Change(this WithDrawRequestModel requestModel)
     {
-        return new Tbl_WithDraw()
+        return new Withdraw()
         {
             AccountNo = requestModel.AccountNo,
             Amount = requestModel.Amount,
@@ -121,7 +121,7 @@ public static class ChangeModel
 
     #region Transaction History
 
-    public static TransactionHistoryModel Change(this Tbl_TransactionHistory dataModel)
+    public static TransactionHistoryModel Change(this TransactionHistory dataModel)
     {
         return new TransactionHistoryModel
         {
@@ -133,9 +133,9 @@ public static class ChangeModel
         };
     }
 
-    public static Tbl_TransactionHistory Change(this TransactionRequestModel requestModel)
+    public static TransactionHistory Change(this TransactionRequestModel requestModel)
     {
-        return new Tbl_TransactionHistory
+        return new TransactionHistory
         {
             FromAccountNo = requestModel.FromAccountNo,
             ToAccountNo = requestModel.ToAccountNo,

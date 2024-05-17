@@ -5,13 +5,13 @@ namespace DotNet8.MiniBankingManagementSystem.Api.Features.WithDraw;
 
 [Route("api/v1/withdraws")]
 [ApiController]
-public class WithDrawController : ControllerBase
+public class WithdrawController : ControllerBase
 {
-    private readonly BL_WithDraw _bL_WithDraw;
+    private readonly BL_Withdraw _bL_Withdraw;
 
-    public WithDrawController(BL_WithDraw bL_WithDraw)
+    public WithdrawController(BL_Withdraw bLWithdraw)
     {
-        _bL_WithDraw = bL_WithDraw;
+        _bL_Withdraw = bLWithdraw;
     }
 
     #region GetWithDrawListByAccountNo
@@ -21,7 +21,7 @@ public class WithDrawController : ControllerBase
     {
         try
         {
-            return Ok(await _bL_WithDraw.GetWithDrawListByAccountNoAsync(accountNo));
+            return Ok(await _bL_Withdraw.GetWithDrawListByAccountNoAsync(accountNo));
         }
         catch (Exception ex)
         {
@@ -38,7 +38,7 @@ public class WithDrawController : ControllerBase
     {
         try
         {
-            return await _bL_WithDraw.CreateWithDrawAsync(requestModel) ? StatusCode(201, "Successful.") : BadRequest("Fail.");
+            return await _bL_Withdraw.CreateWithDrawAsync(requestModel) ? StatusCode(201, "Successful.") : BadRequest("Fail.");
         }
         catch (Exception ex)
         {

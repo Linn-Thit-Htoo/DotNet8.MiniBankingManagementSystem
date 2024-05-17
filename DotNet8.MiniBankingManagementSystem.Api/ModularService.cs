@@ -4,8 +4,6 @@ using DotNet8.MiniBankingManagementSystem.Api.Features.State;
 using DotNet8.MiniBankingManagementSystem.Api.Features.Township;
 using DotNet8.MiniBankingManagementSystem.Api.Features.TransactionHistory;
 using DotNet8.MiniBankingManagementSystem.Api.Features.WithDraw;
-using DotNet8.MiniBankingManagementSystem.DbService.Models;
-using Microsoft.EntityFrameworkCore;
 
 namespace DotNet8.MiniBankingManagementSystem.Api;
 
@@ -46,7 +44,7 @@ public static class ModularService
         services.AddScoped<BL_State>();
         services.AddScoped<BL_Township>();
         services.AddScoped<BL_Deposit>();
-        services.AddScoped<BL_WithDraw>();
+        services.AddScoped<BL_Withdraw>();
         services.AddScoped<BL_TransactionHistory>();
         return services;
     }
@@ -61,7 +59,7 @@ public static class ModularService
         services.AddScoped<DA_State>();
         services.AddScoped<DA_Township>();
         services.AddScoped<DA_Deposit>();
-        services.AddScoped<DA_WithDraw>();
+        services.AddScoped<DA_Withdraw>();
         services.AddScoped<DA_TransactionHistory>();
         return services;
     }

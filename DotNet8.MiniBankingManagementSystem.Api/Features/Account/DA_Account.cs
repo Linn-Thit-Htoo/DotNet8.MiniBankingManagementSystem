@@ -1,9 +1,4 @@
-﻿using DotNet8.MiniBankingManagementSystem.DbService.Models;
-using DotNet8.MiniBankingManagementSystem.Models;
-using DotNet8.MiniBankingManagementSystem.Models.Setup.Account;
-using Microsoft.EntityFrameworkCore;
-
-namespace DotNet8.MiniBankingManagementSystem.Api.Features.Account;
+﻿namespace DotNet8.MiniBankingManagementSystem.Api.Features.Account;
 
 public class DA_Account
 {
@@ -24,7 +19,7 @@ public class DA_Account
     {
         try
         {
-            var lst = await _context.Tbl_Account
+            var lst = await _context.Accounts
                 .AsNoTracking()
                 .OrderByDescending(x => x.AccountId)
                 .ToListAsync();
@@ -49,19 +44,19 @@ public class DA_Account
     {
         try
         {
-            bool isStatePresent = await _context.Tbl_State
+            bool isStatePresent = await _context.States
                 .AsNoTracking()
                 .AnyAsync(x => x.StateCode == requestModel.StateCode);
             if (!isStatePresent)
                 throw new Exception("State does not exist.");
 
-            bool isTownshipPresent = await _context.Tbl_Township
+            bool isTownshipPresent = await _context.Townships
                 .AsNoTracking()
                 .AnyAsync(x => x.TownshipCode == requestModel.TownshipCode);
             if (!isTownshipPresent)
                 throw new Exception("Township does not exist.");
 
-            var townshipLst = await _context.Tbl_Township
+            var townshipLst = await _context.Townships
                 .AsNoTracking()
                 .Where(x => x.StateCode == requestModel.StateCode)
                 .ToListAsync();
@@ -72,7 +67,7 @@ public class DA_Account
 
             requestModel.CustomerCode = await GenerateCustomerCodeAsync();
             requestModel.AccountLevel = 1;
-            await _context.Tbl_Account.AddAsync(requestModel.Change());
+            await _context.Accounts.AddAsync(requestModel.Change());
             int result = await _context.SaveChangesAsync();
 
             return result;
@@ -89,7 +84,7 @@ public class DA_Account
 
     private async Task<string> GenerateCustomerCodeAsync()
     {
-        var latestCustomerCode = await _context.Tbl_Account
+        var latestCustomerCode = await _context.Accounts
             .AsNoTracking()
             .OrderByDescending(a => a.CustomerCode)
             .Select(a => a.CustomerCode)

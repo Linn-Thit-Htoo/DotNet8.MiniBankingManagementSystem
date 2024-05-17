@@ -1,17 +1,14 @@
-﻿using DotNet8.MiniBankingManagementSystem.DbService.Models;
-using DotNet8.MiniBankingManagementSystem.Models;
-using DotNet8.MiniBankingManagementSystem.Models.Setup.WithDraw;
-using Microsoft.EntityFrameworkCore;
+﻿using DotNet8.MiniBankingManagementSystem.Models.Setup.WithDraw;
 
 namespace DotNet8.MiniBankingManagementSystem.Api.Features.WithDraw;
 
-public class DA_WithDraw
+public class DA_Withdraw
 {
     #region Initializations
 
     private AppDbContext _appDbContext;
 
-    public DA_WithDraw(AppDbContext appDbContext)
+    public DA_Withdraw(AppDbContext appDbContext)
     {
         _appDbContext = appDbContext;
     }
@@ -24,7 +21,7 @@ public class DA_WithDraw
     {
         try
         {
-            var dataLst = await _appDbContext.Tbl_WithDraw
+            var dataLst = await _appDbContext.Withdraws
                 .AsNoTracking()
                 .Where(x => x.AccountNo == accountNo)
                 .OrderByDescending(x => x.WithDrawId)
@@ -52,7 +49,7 @@ public class DA_WithDraw
         var transaction = await _appDbContext.Database.BeginTransactionAsync();
         try
         {
-            var account = await _appDbContext.Tbl_Account
+            var account = await _appDbContext.Accounts
                 .AsNoTracking()
                 .FirstOrDefaultAsync(x => x.AccountNo == requestModel.AccountNo && x.IsActive)
                 ?? throw new Exception("Account Not Found or Inactive.");
@@ -68,7 +65,7 @@ public class DA_WithDraw
             _appDbContext.Entry(account).State = EntityState.Modified;
             int accountUpdateResult = await _appDbContext.SaveChangesAsync();
 
-            await _appDbContext.Tbl_WithDraw.AddAsync(requestModel.Change());
+            await _appDbContext.Withdraws.AddAsync(requestModel.Change());
             int result = await _appDbContext.SaveChangesAsync();
 
             if (accountUpdateResult > 0 && result > 0)

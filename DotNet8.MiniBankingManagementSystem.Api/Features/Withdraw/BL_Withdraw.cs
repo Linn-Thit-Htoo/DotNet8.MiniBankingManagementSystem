@@ -2,15 +2,15 @@
 
 namespace DotNet8.MiniBankingManagementSystem.Api.Features.WithDraw;
 
-public class BL_WithDraw
+public class BL_Withdraw
 {
     #region Initialization
 
-    private readonly DA_WithDraw _dA_WithDraw;
+    private readonly DA_Withdraw _dA_Withdraw;
 
-    public BL_WithDraw(DA_WithDraw dA_WithDraw)
+    public BL_Withdraw(DA_Withdraw dAWithdraw)
     {
-        _dA_WithDraw = dA_WithDraw;
+        _dA_Withdraw = dAWithdraw;
     }
 
     #endregion
@@ -22,7 +22,7 @@ public class BL_WithDraw
         if (string.IsNullOrWhiteSpace(accountNo))
             throw new Exception("Account No cannot be empty.");
 
-        return await _dA_WithDraw.GetWithDrawListByAccountNoAsync(accountNo);
+        return await _dA_Withdraw.GetWithDrawListByAccountNoAsync(accountNo);
     }
 
     #endregion
@@ -37,7 +37,7 @@ public class BL_WithDraw
         if (requestModel.Amount <= 0)
             throw new Exception("Amount cannot be empty.");
 
-        return await _dA_WithDraw.CreateWithDrawAsync(requestModel);
+        return await _dA_Withdraw.CreateWithDrawAsync(requestModel);
     }
 
     #endregion

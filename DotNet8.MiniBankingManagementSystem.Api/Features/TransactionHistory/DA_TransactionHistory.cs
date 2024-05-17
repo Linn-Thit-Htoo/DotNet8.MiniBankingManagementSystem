@@ -1,7 +1,4 @@
-﻿using DotNet8.MiniBankingManagementSystem.DbService.Models;
-using DotNet8.MiniBankingManagementSystem.Models;
-using DotNet8.MiniBankingManagementSystem.Models.Setup.TransactionHistory;
-using Microsoft.EntityFrameworkCore;
+﻿using DotNet8.MiniBankingManagementSystem.Models.Setup.TransactionHistory;
 
 namespace DotNet8.MiniBankingManagementSystem.Api.Features.TransactionHistory;
 
@@ -24,7 +21,7 @@ public class DA_TransactionHistory
     {
         try
         {
-            var dataLst = await _appDbContext.Tbl_TransactionHistory
+            var dataLst = await _appDbContext.TransactionHistories
                 .AsNoTracking()
                 .OrderByDescending(x => x.TransactionHistoryId)
                 .Where(x => x.FromAccountNo == accountNo)
@@ -54,7 +51,7 @@ public class DA_TransactionHistory
         {
             #region Check From Account
 
-            var fromAccount = await _appDbContext.Tbl_Account
+            var fromAccount = await _appDbContext.Accounts
                 .AsNoTracking()
                 .FirstOrDefaultAsync(x => x.AccountNo == requestModel.FromAccountNo && x.IsActive)
                 ?? throw new Exception("From Account Not Found or Inactive.");
@@ -63,7 +60,7 @@ public class DA_TransactionHistory
 
             #region Check To Account
 
-            var toAccount = await _appDbContext.Tbl_Account
+            var toAccount = await _appDbContext.Accounts
                 .AsNoTracking()
                 .FirstOrDefaultAsync(x => x.AccountNo == requestModel.ToAccountNo && x.IsActive)
                 ?? throw new Exception("To Account Not Found or Inactive.");
@@ -84,7 +81,7 @@ public class DA_TransactionHistory
             #region Fetch Transaction History By today date by account no
 
             var today = DateTime.Today;
-            var transactionHistory = await _appDbContext.Tbl_TransactionHistory
+            var transactionHistory = await _appDbContext.TransactionHistories
                 .AsNoTracking()
                 .Where(x => x.TransactionDate == today && x.FromAccountNo == requestModel.FromAccountNo)
                 .ToListAsync();
@@ -155,7 +152,7 @@ public class DA_TransactionHistory
 
             #region Add Transaction History
 
-            await _appDbContext.Tbl_TransactionHistory.AddAsync(requestModel.Change());
+            await _appDbContext.TransactionHistories.AddAsync(requestModel.Change());
             int transactionHistorySavingResult = await _appDbContext.SaveChangesAsync();
             if (transactionHistorySavingResult <= 0)
             {

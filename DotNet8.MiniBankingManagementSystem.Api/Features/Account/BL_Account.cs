@@ -1,6 +1,4 @@
-﻿using DotNet8.MiniBankingManagementSystem.Models.Setup.Account;
-
-namespace DotNet8.MiniBankingManagementSystem.Api.Features.Account;
+﻿namespace DotNet8.MiniBankingManagementSystem.Api.Features.Account;
 
 public class BL_Account
 {

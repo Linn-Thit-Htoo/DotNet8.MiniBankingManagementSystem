@@ -1,13 +1,13 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System;
+using System.Collections.Generic;
 
 namespace DotNet8.MiniBankingManagementSystem.DbService.Models;
 
-[Table("State")]
-public class Tbl_State
+public partial class State
 {
-    [Key]
     public long StateId { get; set; }
+
     public string StateCode { get; set; } = null!;
+
     public string StateName { get; set; } = null!;
 }

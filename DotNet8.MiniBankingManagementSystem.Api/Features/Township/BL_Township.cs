@@ -1,6 +1,4 @@
-﻿using DotNet8.MiniBankingManagementSystem.Models.Setup.Township;
-
-namespace DotNet8.MiniBankingManagementSystem.Api.Features.Township;
+﻿namespace DotNet8.MiniBankingManagementSystem.Api.Features.Township;
 
 public class BL_Township
 {
