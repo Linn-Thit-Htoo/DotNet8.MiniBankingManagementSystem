@@ -117,7 +117,8 @@ namespace DotNet8.MiniBankingManagementSystem.Api.Features.TransactionHistory
 
                 #endregion
 
-                // reduce from acc
+                #region Reduce Balance From Account
+
                 decimal reducedFromAccountAmount = fromAccount.Balance - requestModel.Amount;
                 fromAccount.Balance = reducedFromAccountAmount;
                 _appDbContext.Entry(fromAccount).State = EntityState.Modified;
@@ -126,6 +127,8 @@ namespace DotNet8.MiniBankingManagementSystem.Api.Features.TransactionHistory
                 {
                     throw new Exception("Transferring Fail.");
                 }
+
+                #endregion
 
                 // add to acc
                 decimal addedToAccountAmount = toAccount.Balance + requestModel.Amount;
