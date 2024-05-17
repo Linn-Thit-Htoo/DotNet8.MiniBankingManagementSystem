@@ -20,6 +20,7 @@ public class BL_TransactionHistory
 
         return await _dA_TransactionHistory.GetTransactionHistoryListByAccountNoAsync(accountNo);
     }
+
     #endregion
 
     public async Task<bool> CreateTransactionAsync(TransactionRequestModel requestModel)
