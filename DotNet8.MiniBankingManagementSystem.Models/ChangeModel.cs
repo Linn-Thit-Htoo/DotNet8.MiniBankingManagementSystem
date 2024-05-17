@@ -143,5 +143,6 @@ public static class ChangeModel
             TransactionDate = DateTime.Now
         };
     }
+
     #endregion
 }
