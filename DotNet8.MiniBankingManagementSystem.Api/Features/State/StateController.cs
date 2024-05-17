@@ -14,6 +14,8 @@ public class StateController : ControllerBase
         _bL_State = bL_State;
     }
 
+    #region GetStatesList
+
     [HttpGet]
     public async Task<IActionResult> GetStatesList()
     {
@@ -26,6 +28,8 @@ public class StateController : ControllerBase
             throw new Exception(ex.Message);
         }
     }
+
+    #endregion
 
     [HttpPost]
     public async Task<IActionResult> CreateStateList()
