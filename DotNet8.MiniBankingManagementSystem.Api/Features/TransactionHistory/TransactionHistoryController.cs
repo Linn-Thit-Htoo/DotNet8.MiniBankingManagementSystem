@@ -7,15 +7,15 @@ namespace DotNet8.MiniBankingManagementSystem.Api.Features.TransactionHistory;
 [ApiController]
 public class TransactionHistoryController : ControllerBase
 {
-    #region MyRegion
+    #region Initializations
 
-    #endregion
     private readonly BL_TransactionHistory _bL_TransactionHistory;
 
     public TransactionHistoryController(BL_TransactionHistory bL_TransactionHistory)
     {
         _bL_TransactionHistory = bL_TransactionHistory;
     }
+    #endregion
 
     #region GetTransactionListByAccountNo
 
