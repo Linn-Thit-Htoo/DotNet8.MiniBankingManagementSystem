@@ -81,8 +81,6 @@ public static class ChangeModel
         };
     }
 
-    #endregion
-
     public static Tbl_Deposit Change(this DepositRequestModel requestModel)
     {
         return new Tbl_Deposit()
@@ -92,6 +90,8 @@ public static class ChangeModel
             DepositDate = DateTime.Now
         };
     }
+
+    #endregion
 
     public static WithDrawModel Change(this Tbl_WithDraw dataModel)
     {
