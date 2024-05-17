@@ -8,13 +8,13 @@ namespace DotNet8.MiniBankingManagementSystem.Api.Features.Township
     {
         #region Initializations
 
-        #endregion
         private readonly BL_Township _bL_Township;
 
         public TownshipController(BL_Township bL_Township)
         {
             _bL_Township = bL_Township;
         }
+        #endregion
 
         #region GetTownshipList
 
