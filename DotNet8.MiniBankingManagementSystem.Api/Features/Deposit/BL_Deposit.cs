@@ -11,6 +11,9 @@ public class BL_Deposit
         _dA_Deposit = dA_Deposit;
     }
 
+    #region GetDepositListByAccountNoAsync
+
+    #endregion
     public async Task<DepositListResponseModel> GetDepositListByAccountNoAsync(string accountNo)
     {
         if (string.IsNullOrWhiteSpace(accountNo))
