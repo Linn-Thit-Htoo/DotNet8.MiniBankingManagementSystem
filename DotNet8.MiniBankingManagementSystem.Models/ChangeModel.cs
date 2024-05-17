@@ -121,7 +121,6 @@ public static class ChangeModel
 
     #region Transaction History
 
-    #endregion
     public static TransactionHistoryModel Change(this Tbl_TransactionHistory dataModel)
     {
         return new TransactionHistoryModel
@@ -144,4 +143,5 @@ public static class ChangeModel
             TransactionDate = DateTime.Now
         };
     }
+    #endregion
 }
