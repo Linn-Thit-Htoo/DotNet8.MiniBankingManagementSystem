@@ -16,7 +16,6 @@ public class DA_WithDraw
 
     #region GetWithDrawListByAccountNoAsync
 
-    #endregion
     public async Task<WithDrawListResponseModel> GetWithDrawListByAccountNoAsync(string accountNo)
     {
         try
@@ -39,6 +38,8 @@ public class DA_WithDraw
             throw new Exception(ex.Message);
         }
     }
+
+    #endregion
 
     public async Task<bool> CreateWithDrawAsync(WithDrawRequestModel requestModel)
     {
