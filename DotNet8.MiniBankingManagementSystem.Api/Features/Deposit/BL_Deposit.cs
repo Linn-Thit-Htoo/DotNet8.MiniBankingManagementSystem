@@ -20,6 +20,7 @@ public class BL_Deposit
 
         return await _dA_Deposit.GetDepositListByAccountNoAsync(accountNo);
     }
+
     #endregion
 
     public async Task<bool> CreateDepositAsync(DepositRequestModel requestModel)
