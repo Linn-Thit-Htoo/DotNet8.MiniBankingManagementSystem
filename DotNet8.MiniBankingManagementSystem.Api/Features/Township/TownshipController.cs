@@ -6,7 +6,7 @@ namespace DotNet8.MiniBankingManagementSystem.Api.Features.Township
     [ApiController]
     public class TownshipController : ControllerBase
     {
-        #region MyRegion
+        #region Initializations
 
         #endregion
         private readonly BL_Township _bL_Township;
