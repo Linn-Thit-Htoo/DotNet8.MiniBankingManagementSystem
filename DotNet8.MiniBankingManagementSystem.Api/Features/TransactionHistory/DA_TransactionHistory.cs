@@ -51,17 +51,24 @@ namespace DotNet8.MiniBankingManagementSystem.Api.Features.TransactionHistory
 
                 #endregion
 
+                #region Check To Account
+
                 var toAccount = await _appDbContext.Tbl_Account
                     .AsNoTracking()
                     .FirstOrDefaultAsync(x => x.AccountNo == requestModel.ToAccountNo && x.IsActive)
                     ?? throw new Exception("To Account Not Found or Inactive.");
 
-                // balance insufficient
+                #endregion
+
+                #region Check Balance Insufficient
+
                 decimal fromAccountBalance = fromAccount.Balance;
                 if (requestModel.Amount > fromAccountBalance)
                 {
                     throw new Exception("Insufficient Balance.");
                 }
+
+                #endregion
 
                 // transaction history by today date by account no
                 var today = DateTime.Today;
