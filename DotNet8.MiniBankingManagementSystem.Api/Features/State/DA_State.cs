@@ -8,12 +8,16 @@ namespace DotNet8.MiniBankingManagementSystem.Api.Features.State
 {
     public class DA_State
     {
+        #region Initializations
+
         private readonly AppDbContext _appDbContext;
 
         public DA_State(AppDbContext appDbContext)
         {
             _appDbContext = appDbContext;
         }
+
+        #endregion
 
         #region GetStateListAsync
 
