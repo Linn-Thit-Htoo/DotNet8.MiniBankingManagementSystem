@@ -3,43 +3,42 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Identity.Client;
 
-namespace DotNet8.MiniBankingManagementSystem.Api.Features.WithDraw
+namespace DotNet8.MiniBankingManagementSystem.Api.Features.WithDraw;
+
+[Route("api/v1/withdraws")]
+[ApiController]
+public class WithDrawController : ControllerBase
 {
-    [Route("api/v1/withdraws")]
-    [ApiController]
-    public class WithDrawController : ControllerBase
+    private readonly BL_WithDraw _bL_WithDraw;
+
+    public WithDrawController(BL_WithDraw bL_WithDraw)
     {
-        private readonly BL_WithDraw _bL_WithDraw;
+        _bL_WithDraw = bL_WithDraw;
+    }
 
-        public WithDrawController(BL_WithDraw bL_WithDraw)
+    [HttpGet]
+    public async Task<IActionResult> GetWithDrawListByAccountNo(string accountNo)
+    {
+        try
         {
-            _bL_WithDraw = bL_WithDraw;
+            return Ok(await _bL_WithDraw.GetWithDrawListByAccountNoAsync(accountNo));
         }
-
-        [HttpGet]
-        public async Task<IActionResult> GetWithDrawListByAccountNo(string accountNo)
+        catch (Exception ex)
         {
-            try
-            {
-                return Ok(await _bL_WithDraw.GetWithDrawListByAccountNoAsync(accountNo));
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
+            throw new Exception(ex.Message);
         }
+    }
 
-        [HttpPost]
-        public async Task<IActionResult> CreateWithDraw([FromBody] WithDrawRequestModel requestModel)
+    [HttpPost]
+    public async Task<IActionResult> CreateWithDraw([FromBody] WithDrawRequestModel requestModel)
+    {
+        try
         {
-            try
-            {
-                return await _bL_WithDraw.CreateWithDrawAsync(requestModel) ? StatusCode(201, "Successful.") : BadRequest("Fail.");
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
+            return await _bL_WithDraw.CreateWithDrawAsync(requestModel) ? StatusCode(201, "Successful.") : BadRequest("Fail.");
+        }
+        catch (Exception ex)
+        {
+            throw new Exception(ex.Message);
         }
     }
 }
