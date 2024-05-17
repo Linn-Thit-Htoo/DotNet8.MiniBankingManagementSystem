@@ -31,6 +31,8 @@ public class StateController : ControllerBase
 
     #endregion
 
+    #region CreateStateList
+
     [HttpPost]
     public async Task<IActionResult> CreateStateList()
     {
@@ -45,4 +47,6 @@ public class StateController : ControllerBase
             throw new Exception(ex.Message);
         }
     }
+
+    #endregion
 }
