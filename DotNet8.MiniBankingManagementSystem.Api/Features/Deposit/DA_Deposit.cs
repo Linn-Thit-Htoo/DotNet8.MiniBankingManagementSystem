@@ -9,13 +9,13 @@ public class DA_Deposit
 {
     #region Initializations
 
-    #endregion
     private readonly AppDbContext _appDbContext;
 
     public DA_Deposit(AppDbContext appDbContext)
     {
         _appDbContext = appDbContext;
     }
+    #endregion
 
     #region GetDepositListByAccountNoAsync
 
