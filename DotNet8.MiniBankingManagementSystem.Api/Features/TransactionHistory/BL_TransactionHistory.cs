@@ -38,5 +38,6 @@ public class BL_TransactionHistory
 
         return await _dA_TransactionHistory.CreateTransactionAsync(requestModel);
     }
+
     #endregion
 }
