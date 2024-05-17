@@ -42,10 +42,14 @@ namespace DotNet8.MiniBankingManagementSystem.Api.Features.TransactionHistory
             var transaction = await _appDbContext.Database.BeginTransactionAsync();
             try
             {
+                #region Check From Account
+
                 var fromAccount = await _appDbContext.Tbl_Account
                     .AsNoTracking()
                     .FirstOrDefaultAsync(x => x.AccountNo == requestModel.FromAccountNo && x.IsActive)
                     ?? throw new Exception("From Account Not Found or Inactive.");
+
+                #endregion
 
                 var toAccount = await _appDbContext.Tbl_Account
                     .AsNoTracking()
