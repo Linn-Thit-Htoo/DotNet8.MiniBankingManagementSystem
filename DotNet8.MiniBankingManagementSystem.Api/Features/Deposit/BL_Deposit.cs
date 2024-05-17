@@ -13,7 +13,6 @@ public class BL_Deposit
 
     #region GetDepositListByAccountNoAsync
 
-    #endregion
     public async Task<DepositListResponseModel> GetDepositListByAccountNoAsync(string accountNo)
     {
         if (string.IsNullOrWhiteSpace(accountNo))
@@ -21,6 +20,7 @@ public class BL_Deposit
 
         return await _dA_Deposit.GetDepositListByAccountNoAsync(accountNo);
     }
+    #endregion
 
     public async Task<bool> CreateDepositAsync(DepositRequestModel requestModel)
     {
