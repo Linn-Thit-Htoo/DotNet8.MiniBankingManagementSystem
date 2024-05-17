@@ -16,7 +16,6 @@ public class DA_TransactionHistory
 
     #region GetTransactionHistoryListByAccountNoAsync
 
-    #endregion
     public async Task<TransactionHistoryListResponseModel> GetTransactionHistoryListByAccountNoAsync(string accountNo)
     {
         try
@@ -39,6 +38,7 @@ public class DA_TransactionHistory
             throw new Exception(ex.Message);
         }
     }
+    #endregion
 
     public async Task<bool> CreateTransactionAsync(TransactionRequestModel requestModel)
     {
