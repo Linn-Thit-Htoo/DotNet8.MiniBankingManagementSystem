@@ -3,6 +3,7 @@ using DotNet8.MiniBankingManagementSystem.Models.Setup.Account;
 using DotNet8.MiniBankingManagementSystem.Models.Setup.Deposit;
 using DotNet8.MiniBankingManagementSystem.Models.Setup.State;
 using DotNet8.MiniBankingManagementSystem.Models.Setup.Township;
+using DotNet8.MiniBankingManagementSystem.Models.Setup.WithDraw;
 
 namespace DotNet8.MiniBankingManagementSystem.Models;
 
@@ -73,7 +74,7 @@ public static class ChangeModel
         {
             DepositId = dataModel.DepositId,
             AccountNo = dataModel.AccountNo,
-            Amount = dataModel.Amount,
+            Amount = Convert.ToInt32(dataModel.Amount),
             DepositDate = dataModel.DepositDate
         };
     }
@@ -85,6 +86,27 @@ public static class ChangeModel
             AccountNo = requestModel.AccountNo,
             Amount = requestModel.Amount,
             DepositDate = DateTime.Now
+        };
+    }
+
+    public static WithDrawModel Change(this Tbl_WithDraw dataModel)
+    {
+        return new WithDrawModel()
+        {
+            AccountNo = dataModel.AccountNo,
+            WithDrawId = dataModel.WithDrawId,
+            Amount = Convert.ToInt32(dataModel.Amount),
+            WithDrawDate = dataModel.WithDrawDate
+        };
+    }
+
+    public static Tbl_WithDraw Change(this WithDrawRequestModel requestModel)
+    {
+        return new Tbl_WithDraw()
+        {
+            AccountNo = requestModel.AccountNo,
+            Amount = requestModel.Amount,
+            WithDrawDate = DateTime.Now,
         };
     }
 }
