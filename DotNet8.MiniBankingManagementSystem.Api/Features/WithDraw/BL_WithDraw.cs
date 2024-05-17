@@ -11,6 +11,9 @@ public class BL_WithDraw
         _dA_WithDraw = dA_WithDraw;
     }
 
+    #region MyRegion
+
+    #endregion
     public async Task<WithDrawListResponseModel> GetWithDrawListByAccountNoAsync(string accountNo)
     {
         if (string.IsNullOrWhiteSpace(accountNo))
