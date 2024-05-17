@@ -130,7 +130,8 @@ namespace DotNet8.MiniBankingManagementSystem.Api.Features.TransactionHistory
 
                 #endregion
 
-                // add to acc
+                #region Add Amount To Account
+
                 decimal addedToAccountAmount = toAccount.Balance + requestModel.Amount;
                 toAccount.Balance = addedToAccountAmount;
                 _appDbContext.Entry(toAccount).State = EntityState.Modified;
@@ -140,12 +141,18 @@ namespace DotNet8.MiniBankingManagementSystem.Api.Features.TransactionHistory
                     throw new Exception("Transferring Fail.");
                 }
 
+                #endregion
+
+                #region Add Transaction History
+
                 await _appDbContext.Tbl_TransactionHistory.AddAsync(requestModel.Change());
                 int transactionHistorySavingResult = await _appDbContext.SaveChangesAsync();
                 if (transactionHistorySavingResult <= 0)
                 {
                     throw new Exception("Transferring Fail.");
                 }
+
+                #endregion
 
 
                 if (fromAccountSavingResult > 0 && toAccountSavingResult > 0 && transactionHistorySavingResult > 0)
