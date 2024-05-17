@@ -2,7 +2,6 @@
 using DotNet8.MiniBankingManagementSystem.Models;
 using DotNet8.MiniBankingManagementSystem.Models.Setup.TransactionHistory;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Conventions;
 
 namespace DotNet8.MiniBankingManagementSystem.Api.Features.TransactionHistory
 {
