@@ -56,9 +56,6 @@ public static class ChangeModel
 
     #endregion
 
-    #region MyRegion
-
-    #endregion
     public static TownshipModel Change(this Tbl_Township dataModel)
     {
         return new TownshipModel()
