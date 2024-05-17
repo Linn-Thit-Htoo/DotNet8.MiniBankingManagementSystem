@@ -20,6 +20,7 @@ public class BL_WithDraw
 
         return await _dA_WithDraw.GetWithDrawListByAccountNoAsync(accountNo);
     }
+
     #endregion
 
     public async Task<bool> CreateWithDrawAsync(WithDrawRequestModel requestModel)
