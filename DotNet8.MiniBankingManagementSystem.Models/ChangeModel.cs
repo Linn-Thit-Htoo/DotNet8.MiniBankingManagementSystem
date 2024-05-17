@@ -68,7 +68,7 @@ public static class ChangeModel
 
     #endregion
 
-    #region MyRegion
+    #region Deposit
 
     #endregion
     public static DepositModel Change(this Tbl_Deposit dataModel)
