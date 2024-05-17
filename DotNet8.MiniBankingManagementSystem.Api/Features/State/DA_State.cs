@@ -24,7 +24,7 @@ namespace DotNet8.MiniBankingManagementSystem.Api.Features.State
 
             var lst = states.Select(x => x.Change()).ToList();
 
-            return new StateListResponseModel()
+            return new StateListResponseModel
             {
                 DataLst = lst
             };

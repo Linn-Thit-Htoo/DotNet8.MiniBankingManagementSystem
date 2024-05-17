@@ -1,6 +1,7 @@
 ﻿using DotNet8.MiniBankingManagementSystem.DbService.Models;
 using DotNet8.MiniBankingManagementSystem.Models.Setup.Account;
 using DotNet8.MiniBankingManagementSystem.Models.Setup.State;
+using DotNet8.MiniBankingManagementSystem.Models.Setup.Township;
 
 namespace DotNet8.MiniBankingManagementSystem.Models;
 
@@ -48,6 +49,16 @@ public static class ChangeModel
             StateId = dataModel.StateId,
             StateCode = dataModel.StateCode,
             StateName = dataModel.StateName
+        };
+    }
+
+    public static TownshipModel Change(this Tbl_Township dataModel)
+    {
+        return new TownshipModel()
+        {
+            TownshipId = dataModel.TownshipId,
+            StateCode = dataModel.StateCode,
+            TownshipCode = dataModel.TownshipCode
         };
     }
 }

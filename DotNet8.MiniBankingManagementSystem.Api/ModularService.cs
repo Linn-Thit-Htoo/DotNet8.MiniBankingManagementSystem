@@ -1,5 +1,6 @@
 ﻿using DotNet8.MiniBankingManagementSystem.Api.Features.Account;
 using DotNet8.MiniBankingManagementSystem.Api.Features.State;
+using DotNet8.MiniBankingManagementSystem.Api.Features.Township;
 using DotNet8.MiniBankingManagementSystem.DbService.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -25,6 +26,7 @@ public static class ModularService
     {
         services.AddScoped<BL_Account>();
         services.AddScoped<BL_State>();
+        services.AddScoped<BL_Township>();
         return services;
     }
 
@@ -36,6 +38,7 @@ public static class ModularService
     {
         services.AddScoped<DA_Account>();
         services.AddScoped<DA_State>();
+        services.AddScoped<DA_Township>();
         return services;
     }
 
