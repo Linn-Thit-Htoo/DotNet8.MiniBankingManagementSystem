@@ -41,6 +41,9 @@ public class DA_WithDraw
 
     #endregion
 
+    #region CreateWithDrawAsync
+
+    #endregion
     public async Task<bool> CreateWithDrawAsync(WithDrawRequestModel requestModel)
     {
         var transaction = await _appDbContext.Database.BeginTransactionAsync();
