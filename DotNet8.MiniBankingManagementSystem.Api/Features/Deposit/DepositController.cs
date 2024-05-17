@@ -34,7 +34,6 @@ public class DepositController : ControllerBase
 
     #region CreateDeposit
 
-    #endregion
     [HttpPost]
     public async Task<IActionResult> CreateDeposit([FromBody] DepositRequestModel requestModel)
     {
@@ -48,4 +47,5 @@ public class DepositController : ControllerBase
             throw new Exception(ex.Message);
         }
     }
+    #endregion
 }
