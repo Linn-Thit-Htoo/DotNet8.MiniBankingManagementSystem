@@ -12,6 +12,7 @@ public class BL_Deposit
     {
         _dA_Deposit = dA_Deposit;
     }
+
     #endregion
 
     #region GetDepositListByAccountNoAsync
