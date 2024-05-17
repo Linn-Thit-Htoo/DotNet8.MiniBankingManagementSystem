@@ -49,7 +49,9 @@ public class DA_WithDraw
 
             decimal oldBalance = account.Balance;
             if (requestModel.Amount > oldBalance)
+            {
                 throw new Exception("Your balance is insufficient.");
+            }
 
             decimal newBalance = oldBalance - requestModel.Amount;
             account.Balance = newBalance;

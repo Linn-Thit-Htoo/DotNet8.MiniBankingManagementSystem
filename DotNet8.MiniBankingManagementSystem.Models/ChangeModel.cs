@@ -3,6 +3,7 @@ using DotNet8.MiniBankingManagementSystem.Models.Setup.Account;
 using DotNet8.MiniBankingManagementSystem.Models.Setup.Deposit;
 using DotNet8.MiniBankingManagementSystem.Models.Setup.State;
 using DotNet8.MiniBankingManagementSystem.Models.Setup.Township;
+using DotNet8.MiniBankingManagementSystem.Models.Setup.TransactionHistory;
 using DotNet8.MiniBankingManagementSystem.Models.Setup.WithDraw;
 
 namespace DotNet8.MiniBankingManagementSystem.Models;
@@ -117,4 +118,27 @@ public static class ChangeModel
     }
 
     #endregion
+
+    public static TransactionHistoryModel Change(this Tbl_TransactionHistory dataModel)
+    {
+        return new TransactionHistoryModel
+        {
+            Amount = Convert.ToInt32(dataModel.Amount),
+            FromAccountNo = dataModel.FromAccountNo,
+            ToAccountNo = dataModel.ToAccountNo,
+            TransactionDate = dataModel.TransactionDate,
+            TransactionHistoryId = dataModel.TransactionHistoryId
+        };
+    }
+
+    public static Tbl_TransactionHistory Change(this TransactionRequestModel requestModel)
+    {
+        return new Tbl_TransactionHistory
+        {
+            FromAccountNo = requestModel.FromAccountNo,
+            ToAccountNo = requestModel.ToAccountNo,
+            Amount = requestModel.Amount,
+            TransactionDate = DateTime.Now
+        };
+    }
 }
