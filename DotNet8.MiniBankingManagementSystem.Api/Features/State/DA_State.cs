@@ -15,6 +15,8 @@ namespace DotNet8.MiniBankingManagementSystem.Api.Features.State
             _appDbContext = appDbContext;
         }
 
+        #region GetStateListAsync
+
         public async Task<StateListResponseModel> GetStateListAsync()
         {
             var states = await _appDbContext.Tbl_State
@@ -29,6 +31,8 @@ namespace DotNet8.MiniBankingManagementSystem.Api.Features.State
                 DataLst = lst
             };
         }
+
+        #endregion
 
         public async Task<int> CreateStatesAsync()
         {
