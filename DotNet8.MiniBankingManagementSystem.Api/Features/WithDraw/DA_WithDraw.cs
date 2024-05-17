@@ -43,7 +43,6 @@ public class DA_WithDraw
 
     #region CreateWithDrawAsync
 
-    #endregion
     public async Task<bool> CreateWithDrawAsync(WithDrawRequestModel requestModel)
     {
         var transaction = await _appDbContext.Database.BeginTransactionAsync();
@@ -83,4 +82,6 @@ public class DA_WithDraw
             throw new Exception(ex.Message);
         }
     }
+
+    #endregion
 }
