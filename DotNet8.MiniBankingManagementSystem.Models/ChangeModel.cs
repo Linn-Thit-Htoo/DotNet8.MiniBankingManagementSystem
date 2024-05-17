@@ -53,6 +53,7 @@ public static class ChangeModel
             StateName = dataModel.StateName
         };
     }
+
     #endregion
 
     public static TownshipModel Change(this Tbl_Township dataModel)
