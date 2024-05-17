@@ -41,6 +41,9 @@ public class DA_TransactionHistory
 
     #endregion
 
+    #region MyRegion
+
+    #endregion
     public async Task<bool> CreateTransactionAsync(TransactionRequestModel requestModel)
     {
         var transaction = await _appDbContext.Database.BeginTransactionAsync();
