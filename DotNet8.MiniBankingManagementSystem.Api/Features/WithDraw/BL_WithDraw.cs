@@ -23,6 +23,9 @@ public class BL_WithDraw
 
     #endregion
 
+    #region MyRegion
+
+    #endregion
     public async Task<bool> CreateWithDrawAsync(WithDrawRequestModel requestModel)
     {
         if (string.IsNullOrWhiteSpace(requestModel.AccountNo))
