@@ -93,6 +93,9 @@ public static class ChangeModel
 
     #endregion
 
+    #region WithDraw
+
+    #endregion
     public static WithDrawModel Change(this Tbl_WithDraw dataModel)
     {
         return new WithDrawModel()
