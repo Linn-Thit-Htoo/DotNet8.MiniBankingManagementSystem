@@ -7,6 +7,9 @@ namespace DotNet8.MiniBankingManagementSystem.Api.Features.WithDraw;
 
 public class DA_WithDraw
 {
+    #region Initializations
+
+    #endregion
     private AppDbContext _appDbContext;
 
     public DA_WithDraw(AppDbContext appDbContext)
