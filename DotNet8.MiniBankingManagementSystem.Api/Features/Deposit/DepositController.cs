@@ -17,7 +17,6 @@ public class DepositController : ControllerBase
 
     #region GetDepositListByAccountNo
 
-    #endregion
     [HttpGet]
     public async Task<IActionResult> GetDepositListByAccountNo(string accountNo)
     {
@@ -30,6 +29,7 @@ public class DepositController : ControllerBase
             throw new Exception(ex.Message);
         }
     }
+    #endregion
 
     [HttpPost]
     public async Task<IActionResult> CreateDeposit([FromBody] DepositRequestModel requestModel)
