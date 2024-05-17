@@ -95,7 +95,6 @@ public static class ChangeModel
 
     #region WithDraw
 
-    #endregion
     public static WithDrawModel Change(this Tbl_WithDraw dataModel)
     {
         return new WithDrawModel()
@@ -116,4 +115,5 @@ public static class ChangeModel
             WithDrawDate = DateTime.Now,
         };
     }
+    #endregion
 }
