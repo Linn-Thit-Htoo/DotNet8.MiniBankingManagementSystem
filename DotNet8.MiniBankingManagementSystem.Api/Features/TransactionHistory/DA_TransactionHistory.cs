@@ -15,6 +15,7 @@ public class DA_TransactionHistory
     {
         _appDbContext = appDbContext;
     }
+
     #endregion
 
     #region GetTransactionHistoryListByAccountNoAsync
