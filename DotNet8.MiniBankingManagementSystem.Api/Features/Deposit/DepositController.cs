@@ -16,6 +16,7 @@ public class DepositController : ControllerBase
     {
         _bL_Deposit = bL_Deposit;
     }
+
     #endregion
 
     #region GetDepositListByAccountNo
