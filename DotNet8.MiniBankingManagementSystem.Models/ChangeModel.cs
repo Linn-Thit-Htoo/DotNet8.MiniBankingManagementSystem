@@ -70,7 +70,6 @@ public static class ChangeModel
 
     #region Deposit
 
-    #endregion
     public static DepositModel Change(this Tbl_Deposit dataModel)
     {
         return new DepositModel()
@@ -81,6 +80,8 @@ public static class ChangeModel
             DepositDate = dataModel.DepositDate
         };
     }
+
+    #endregion
 
     public static Tbl_Deposit Change(this DepositRequestModel requestModel)
     {
