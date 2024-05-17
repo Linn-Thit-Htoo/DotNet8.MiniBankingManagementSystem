@@ -15,6 +15,8 @@ public class DA_Township
         _appDbContext = appDbContext;
     }
 
+    #region GetTownshipListAsync
+
     public async Task<TownshipResponseModel> GetTownshipListAsync()
     {
         var townships = await _appDbContext.Tbl_Township
@@ -30,6 +32,10 @@ public class DA_Township
         };
     }
 
+    #endregion
+
+    #region CreateTownshipListAsync
+
     public async Task<int> CreateTownshipListAsync()
     {
         string jsonStr = await File.ReadAllTextAsync("Data/TownshipList.json");
@@ -39,4 +45,6 @@ public class DA_Township
 
         return result;
     }
+
+    #endregion
 }
