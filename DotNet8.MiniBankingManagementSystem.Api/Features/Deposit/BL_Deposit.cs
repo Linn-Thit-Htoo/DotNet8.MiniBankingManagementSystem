@@ -36,5 +36,6 @@ public class BL_Deposit
         bool isSuccess = await _dA_Deposit.CreateDepositAsync(requestModel);
         return isSuccess;
     }
+
     #endregion
 }
