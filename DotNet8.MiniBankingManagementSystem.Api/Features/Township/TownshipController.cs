@@ -15,7 +15,6 @@ namespace DotNet8.MiniBankingManagementSystem.Api.Features.Township
 
         #region GetTownshipList
 
-        #endregion
         [HttpGet]
         public async Task<IActionResult> GetTownshipList()
         {
@@ -28,6 +27,7 @@ namespace DotNet8.MiniBankingManagementSystem.Api.Features.Township
                 throw new Exception(ex.Message);
             }
         }
+        #endregion
 
         [HttpPost]
         public async Task<IActionResult> CreateTownshipList()
