@@ -44,7 +44,6 @@ public static class ChangeModel
 
     #region State
 
-    #endregion
     public static StateModel Change(this Tbl_State dataModel)
     {
         return new StateModel()
@@ -54,6 +53,7 @@ public static class ChangeModel
             StateName = dataModel.StateName
         };
     }
+    #endregion
 
     public static TownshipModel Change(this Tbl_Township dataModel)
     {
