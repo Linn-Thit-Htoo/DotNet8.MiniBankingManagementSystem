@@ -8,15 +8,16 @@ namespace DotNet8.MiniBankingManagementSystem.Api.Features.Township;
 
 public class DA_Township
 {
-    #region MyRegion
+    #region Initializations
 
-    #endregion
     private readonly AppDbContext _appDbContext;
 
     public DA_Township(AppDbContext appDbContext)
     {
         _appDbContext = appDbContext;
     }
+
+    #endregion
 
     #region GetTownshipListAsync
 
