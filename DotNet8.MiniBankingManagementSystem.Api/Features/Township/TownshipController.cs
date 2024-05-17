@@ -27,6 +27,7 @@ namespace DotNet8.MiniBankingManagementSystem.Api.Features.Township
                 throw new Exception(ex.Message);
             }
         }
+
         #endregion
 
         [HttpPost]
