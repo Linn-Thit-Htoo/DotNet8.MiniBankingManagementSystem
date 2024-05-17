@@ -14,6 +14,9 @@ public class DA_Deposit
         _appDbContext = appDbContext;
     }
 
+    #region GetDepositListByAccountNoAsync
+
+    #endregion
     public async Task<DepositListResponseModel> GetDepositListByAccountNoAsync(string accountNo)
     {
         try
