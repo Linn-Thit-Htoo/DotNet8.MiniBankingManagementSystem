@@ -4,6 +4,9 @@ namespace DotNet8.MiniBankingManagementSystem.Api.Features.WithDraw;
 
 public class BL_WithDraw
 {
+    #region MyRegion
+
+    #endregion
     private readonly DA_WithDraw _dA_WithDraw;
 
     public BL_WithDraw(DA_WithDraw dA_WithDraw)
