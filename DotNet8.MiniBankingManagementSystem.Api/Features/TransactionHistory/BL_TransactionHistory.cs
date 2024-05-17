@@ -12,6 +12,7 @@ public class BL_TransactionHistory
     {
         _dA_TransactionHistory = dA_TransactionHistory;
     }
+
     #endregion
 
     #region GetTransactionHistoryListByAccountNoAsync
