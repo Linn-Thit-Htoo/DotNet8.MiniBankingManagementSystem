@@ -6,12 +6,16 @@ namespace DotNet8.MiniBankingManagementSystem.Api.Features.State;
 [ApiController]
 public class StateController : ControllerBase
 {
+    #region Initializations
+
     private readonly BL_State _bL_State;
 
     public StateController(BL_State bL_State)
     {
         _bL_State = bL_State;
     }
+
+    #endregion
 
     #region GetStatesList
 
