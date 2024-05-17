@@ -15,6 +15,7 @@ public class TransactionHistoryController : ControllerBase
     {
         _bL_TransactionHistory = bL_TransactionHistory;
     }
+
     #endregion
 
     #region GetTransactionListByAccountNo
