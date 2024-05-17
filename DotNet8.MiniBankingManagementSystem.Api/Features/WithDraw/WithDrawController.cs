@@ -16,7 +16,6 @@ public class WithDrawController : ControllerBase
 
     #region GetWithDrawListByAccountNo
 
-    #endregion
     [HttpGet]
     public async Task<IActionResult> GetWithDrawListByAccountNo(string accountNo)
     {
@@ -29,6 +28,8 @@ public class WithDrawController : ControllerBase
             throw new Exception(ex.Message);
         }
     }
+
+    #endregion
 
     [HttpPost]
     public async Task<IActionResult> CreateWithDraw([FromBody] WithDrawRequestModel requestModel)
