@@ -28,6 +28,7 @@ public class TransactionHistoryController : ControllerBase
             throw new Exception(ex.Message);
         }
     }
+
     #endregion
 
     [HttpPost]
