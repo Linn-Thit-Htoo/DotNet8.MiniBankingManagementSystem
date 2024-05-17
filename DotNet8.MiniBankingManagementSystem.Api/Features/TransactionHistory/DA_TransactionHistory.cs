@@ -14,7 +14,7 @@ public class DA_TransactionHistory
         _appDbContext = appDbContext;
     }
 
-    #region MyRegion
+    #region GetTransactionHistoryListByAccountNoAsync
 
     #endregion
     public async Task<TransactionHistoryListResponseModel> GetTransactionHistoryListByAccountNoAsync(string accountNo)
