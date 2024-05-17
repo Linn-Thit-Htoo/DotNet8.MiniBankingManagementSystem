@@ -25,7 +25,6 @@ public class BL_WithDraw
 
     #region CreateWithDrawAsync
 
-    #endregion
     public async Task<bool> CreateWithDrawAsync(WithDrawRequestModel requestModel)
     {
         if (string.IsNullOrWhiteSpace(requestModel.AccountNo))
@@ -36,4 +35,5 @@ public class BL_WithDraw
 
         return await _dA_WithDraw.CreateWithDrawAsync(requestModel);
     }
+    #endregion
 }
