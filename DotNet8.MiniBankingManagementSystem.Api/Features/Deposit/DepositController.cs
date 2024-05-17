@@ -8,12 +8,15 @@ namespace DotNet8.MiniBankingManagementSystem.Api.Features.Deposit;
 [ApiController]
 public class DepositController : ControllerBase
 {
+    #region Initializations
+
     private readonly BL_Deposit _bL_Deposit;
 
     public DepositController(BL_Deposit bL_Deposit)
     {
         _bL_Deposit = bL_Deposit;
     }
+    #endregion
 
     #region GetDepositListByAccountNo
 
