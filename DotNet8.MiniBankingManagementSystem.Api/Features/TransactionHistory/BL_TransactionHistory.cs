@@ -25,7 +25,6 @@ public class BL_TransactionHistory
 
     #region CreateTransactionAsync
 
-    #endregion
     public async Task<bool> CreateTransactionAsync(TransactionRequestModel requestModel)
     {
         if (string.IsNullOrEmpty(requestModel.FromAccountNo))
@@ -39,4 +38,5 @@ public class BL_TransactionHistory
 
         return await _dA_TransactionHistory.CreateTransactionAsync(requestModel);
     }
+    #endregion
 }
