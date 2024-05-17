@@ -43,7 +43,6 @@ public class DA_Deposit
 
     #region CreateDepositAsync
 
-    #endregion
     public async Task<bool> CreateDepositAsync(DepositRequestModel requestModel)
     {
         var transaction = await _appDbContext.Database.BeginTransactionAsync();
@@ -79,4 +78,5 @@ public class DA_Deposit
             return false;
         }
     }
+    #endregion
 }
