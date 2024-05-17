@@ -26,5 +26,20 @@ namespace DotNet8.MiniBankingManagementSystem.Api.Features.State
                 throw new Exception(ex.Message);
             }
         }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateStateList()
+        {
+            try
+            {
+                int result = await _bL_State.CreateStatesAsync();
+
+                return result > 0 ? StatusCode(201, "State Data Migration Successful.") : BadRequest("Fail.");
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }

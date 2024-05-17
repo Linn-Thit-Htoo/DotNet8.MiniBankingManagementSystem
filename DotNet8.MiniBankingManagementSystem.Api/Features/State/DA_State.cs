@@ -2,6 +2,7 @@
 using DotNet8.MiniBankingManagementSystem.Models;
 using DotNet8.MiniBankingManagementSystem.Models.Setup.State;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 
 namespace DotNet8.MiniBankingManagementSystem.Api.Features.State
 {
@@ -27,6 +28,16 @@ namespace DotNet8.MiniBankingManagementSystem.Api.Features.State
             {
                 DataLst = lst
             };
+        }
+
+        public async Task<int> CreateStatesAsync()
+        {
+            string jsonStr = await File.ReadAllTextAsync("Data/StateList.json");
+            List<Tbl_State> lst = JsonConvert.DeserializeObject<List<Tbl_State>>(jsonStr)!;
+            await _appDbContext.Tbl_State.AddRangeAsync(lst);
+            int result = await _appDbContext.SaveChangesAsync();
+
+            return result;
         }
     }
 }

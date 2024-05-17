@@ -15,5 +15,11 @@ namespace DotNet8.MiniBankingManagementSystem.Api.Features.State
         {
             return await _dA_State.GetStateListAsync();
         }
+
+        public async Task<int> CreateStatesAsync()
+        {
+            int result = await _dA_State.CreateStatesAsync();
+            return result;
+        }
     }
 }
