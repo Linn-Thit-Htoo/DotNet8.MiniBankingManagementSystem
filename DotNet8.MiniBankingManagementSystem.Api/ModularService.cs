@@ -40,12 +40,12 @@ public static class ModularService
 
     private static IServiceCollection AddBusinessLogicServices(this IServiceCollection services)
     {
-        services.AddScoped<BL_Account>();
-        services.AddScoped<BL_State>();
-        services.AddScoped<BL_Township>();
-        services.AddScoped<BL_Deposit>();
-        services.AddScoped<BL_Withdraw>();
-        services.AddScoped<BL_TransactionHistory>();
+        services.AddScoped<BL_Account>()
+            .AddScoped<BL_State>()
+            .AddScoped<BL_Township>()
+            .AddScoped<BL_Deposit>()
+            .AddScoped<BL_Withdraw>()
+            .AddScoped<BL_TransactionHistory>();
         return services;
     }
 
@@ -55,12 +55,12 @@ public static class ModularService
 
     private static IServiceCollection AddDataAccessServices(this IServiceCollection services)
     {
-        services.AddScoped<DA_Account>();
-        services.AddScoped<DA_State>();
-        services.AddScoped<DA_Township>();
-        services.AddScoped<DA_Deposit>();
-        services.AddScoped<DA_Withdraw>();
-        services.AddScoped<DA_TransactionHistory>();
+        services.AddScoped<DA_Account>()
+            .AddScoped<DA_State>()
+            .AddScoped<DA_Township>()
+            .AddScoped<DA_Deposit>()
+            .AddScoped<DA_Withdraw>()
+            .AddScoped<DA_TransactionHistory>();
         return services;
     }
 
