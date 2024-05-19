@@ -1,4 +1,4 @@
-# Mini Banking Management System
+# Mini Banking Management System using .NET 8
 
 ## notes
 
