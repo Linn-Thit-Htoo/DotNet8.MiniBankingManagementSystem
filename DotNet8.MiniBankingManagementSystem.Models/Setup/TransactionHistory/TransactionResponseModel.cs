@@ -1,10 +1,9 @@
-﻿namespace DotNet8.MiniBankingManagementSystem.Models.Setup.TransactionHistory
+﻿namespace DotNet8.MiniBankingManagementSystem.Models.Setup.TransactionHistory;
+
+public class TransactionResponseModel
 {
-    public class TransactionResponseModel
-    {
-        public string TransactionHistoryId { get; set; } = null!;
-        public decimal Amount { get; set; }
-        public DateTime TransactionDate { get; set; }
-        public string ReceiverName { get; set; } = null!;
-    }
+    public string TransactionHistoryId { get; set; } = null!;
+    public decimal Amount { get; set; }
+    public DateTime TransactionDate { get; set; }
+    public string ReceiverName { get; set; } = null!;
 }
