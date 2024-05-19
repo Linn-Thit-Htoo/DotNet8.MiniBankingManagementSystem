@@ -5,7 +5,7 @@ namespace DotNet8.MiniBankingManagementSystem.DbService.Models;
 
 public partial class TransactionHistory
 {
-    public long TransactionHistoryId { get; set; }
+    public string TransactionHistoryId { get; set; } = null!;
 
     public string FromAccountNo { get; set; } = null!;
 

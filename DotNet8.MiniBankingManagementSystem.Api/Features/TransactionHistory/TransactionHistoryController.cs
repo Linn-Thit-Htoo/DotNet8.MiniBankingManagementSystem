@@ -21,7 +21,7 @@ public class TransactionHistoryController : ControllerBase
     #region GetTransactionListByAccountNo
 
     [HttpGet]
-    public async Task<IActionResult> GetTransactionListByAccountNo(string accountNo)
+    public async Task<IActionResult> GetTransactionListByAccountNoAsync(string accountNo)
     {
         try
         {

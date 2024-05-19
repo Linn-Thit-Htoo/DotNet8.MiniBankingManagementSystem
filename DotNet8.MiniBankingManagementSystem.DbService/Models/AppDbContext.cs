@@ -74,6 +74,7 @@ public partial class AppDbContext : DbContext
         {
             entity.ToTable("TransactionHistory");
 
+            entity.Property(e => e.TransactionHistoryId).HasMaxLength(50);
             entity.Property(e => e.FromAccountNo).HasMaxLength(50);
             entity.Property(e => e.ToAccountNo).HasMaxLength(50);
             entity.Property(e => e.TransactionDate).HasColumnType("datetime");

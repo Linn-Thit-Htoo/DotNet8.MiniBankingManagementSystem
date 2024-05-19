@@ -2,7 +2,7 @@
 
 public class TransactionHistoryModel
 {
-    public long TransactionHistoryId { get; set; }
+    public string TransactionHistoryId { get; set; } = null!;
     public string FromAccountNo { get; set; } = null!;
     public string ToAccountNo { get; set; } = null!;
     public decimal Amount { get; set; }

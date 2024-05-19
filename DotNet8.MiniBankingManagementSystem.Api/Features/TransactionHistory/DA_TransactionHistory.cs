@@ -1,4 +1,7 @@
-﻿using DotNet8.MiniBankingManagementSystem.Models.Setup.TransactionHistory;
+﻿using Dapper;
+using DotNet8.MiniBankingManagementSystem.Models.Setup.TransactionHistory;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace DotNet8.MiniBankingManagementSystem.Api.Features.TransactionHistory;
 
@@ -7,10 +10,12 @@ public class DA_TransactionHistory
     #region Initializations
 
     private readonly AppDbContext _appDbContext;
+    private readonly IConfiguration _configuration;
 
-    public DA_TransactionHistory(AppDbContext appDbContext)
+    public DA_TransactionHistory(AppDbContext appDbContext, IConfiguration configuration)
     {
         _appDbContext = appDbContext;
+        _configuration = configuration;
     }
 
     #endregion
@@ -21,13 +26,25 @@ public class DA_TransactionHistory
     {
         try
         {
-            var dataLst = await _appDbContext.TransactionHistories
-                .AsNoTracking()
-                .OrderByDescending(x => x.TransactionHistoryId)
-                .Where(x => x.FromAccountNo == accountNo)
-                .ToListAsync();
+            using IDbConnection db = new SqlConnection(_configuration.GetConnectionString("DbConnection"));
+            var parameters = new
+            {
+                FromAccountNo = accountNo
+            };
 
-            var lst = dataLst.Select(x => x.Change()).ToList();
+            IEnumerable<TransactionResponseModel> dataLst = await db
+                .QueryAsync<TransactionResponseModel>(
+                "Sp_GetTransactionHistoryListByAccountNo",
+                parameters,
+                commandType: CommandType.StoredProcedure);
+
+            var lst = dataLst.Select(x => new TransactionResponseModel()
+            {
+                Amount = Math.Round(x.Amount),
+                ReceiverName = x.ReceiverName,
+                TransactionDate = x.TransactionDate,
+                TransactionHistoryId = x.TransactionHistoryId
+            }).ToList();
 
             return new TransactionHistoryListResponseModel
             {

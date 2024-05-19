@@ -137,6 +137,7 @@ public static class ChangeModel
     {
         return new TransactionHistory
         {
+            TransactionHistoryId = Ulid.NewUlid().ToString(),
             FromAccountNo = requestModel.FromAccountNo,
             ToAccountNo = requestModel.ToAccountNo,
             Amount = requestModel.Amount,
