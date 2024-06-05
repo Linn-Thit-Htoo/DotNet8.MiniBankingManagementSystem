@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace DotNet8.MiniBankingManagementSystem.DbService.Models;
+﻿namespace DotNet8.MiniBankingManagementSystem.DbService.Models;
 
 public partial class Account
 {
