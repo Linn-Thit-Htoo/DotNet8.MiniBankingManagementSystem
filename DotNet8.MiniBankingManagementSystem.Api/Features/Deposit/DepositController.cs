@@ -6,7 +6,7 @@ namespace DotNet8.MiniBankingManagementSystem.Api.Features.Deposit;
 
 [Route("api/v1/deposits")]
 [ApiController]
-public class DepositController : ControllerBase
+public class DepositController : BaseController
 {
     #region Initializations
 
@@ -26,11 +26,11 @@ public class DepositController : ControllerBase
     {
         try
         {
-            return Ok(await _bL_Deposit.GetDepositListByAccountNoAsync(accountNo));
+            return Content(await _bL_Deposit.GetDepositListByAccountNoAsync(accountNo));
         }
         catch (Exception ex)
         {
-            throw new Exception(ex.Message);
+            return HandleFailure(ex);
         }
     }
 
@@ -48,7 +48,7 @@ public class DepositController : ControllerBase
         }
         catch (Exception ex)
         {
-            throw new Exception(ex.Message);
+            return HandleFailure(ex);
         }
     }
 
