@@ -1,11 +1,10 @@
 ﻿using DotNet8.MiniBankingManagementSystem.DbService.Models;
 using DotNet8.MiniBankingManagementSystem.Models.Features.Account;
 using DotNet8.MiniBankingManagementSystem.Models.Features.Deposit;
+using DotNet8.MiniBankingManagementSystem.Models.Features.State;
+using DotNet8.MiniBankingManagementSystem.Models.Features.Township;
+using DotNet8.MiniBankingManagementSystem.Models.Features.TransactionHistory;
 using DotNet8.MiniBankingManagementSystem.Models.Features.WithDraw;
-using DotNet8.MiniBankingManagementSystem.Models.Setup.State;
-using DotNet8.MiniBankingManagementSystem.Models.Setup.Township;
-using DotNet8.MiniBankingManagementSystem.Models.Setup.TransactionHistory;
-using DotNet8.MiniBankingManagementSystem.Models.Setup.WithDraw;
 
 namespace DotNet8.MiniBankingManagementSystem.Mapper;
 
