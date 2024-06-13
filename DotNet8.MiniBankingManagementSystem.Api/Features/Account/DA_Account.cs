@@ -1,4 +1,6 @@
-﻿namespace DotNet8.MiniBankingManagementSystem.Api.Features.Account;
+﻿using DotNet8.MiniBankingManagementSystem.Models.Features.Account;
+
+namespace DotNet8.MiniBankingManagementSystem.Api.Features.Account;
 
 public class DA_Account
 {
