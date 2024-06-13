@@ -1,4 +1,4 @@
-﻿using DotNet8.MiniBankingManagementSystem.Models.Setup.Deposit;
+﻿using DotNet8.MiniBankingManagementSystem.Models.Features.Deposit;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DotNet8.MiniBankingManagementSystem.Api.Features.Deposit;
