@@ -1,4 +1,4 @@
-﻿namespace DotNet8.MiniBankingManagementSystem.Models.Setup.WithDraw;
+﻿namespace DotNet8.MiniBankingManagementSystem.Models.Features.WithDraw;
 
 public class WithDrawRequestModel
 {
