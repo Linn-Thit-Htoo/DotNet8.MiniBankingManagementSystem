@@ -1,6 +1,5 @@
 ﻿using DotNet8.MiniBankingManagementSystem.Models.Enums;
 using DotNet8.MiniBankingManagementSystem.Models.Resources;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DotNet8.MiniBankingManagementSystem.Api.Features
