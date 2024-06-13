@@ -6,7 +6,7 @@ using DotNet8.MiniBankingManagementSystem.Models.Setup.Township;
 using DotNet8.MiniBankingManagementSystem.Models.Setup.TransactionHistory;
 using DotNet8.MiniBankingManagementSystem.Models.Setup.WithDraw;
 
-namespace DotNet8.MiniBankingManagementSystem.Models;
+namespace DotNet8.MiniBankingManagementSystem.Mapper;
 
 public static class ChangeModel
 {
