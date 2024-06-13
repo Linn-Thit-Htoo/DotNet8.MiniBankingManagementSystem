@@ -1,4 +1,4 @@
-﻿namespace DotNet8.MiniBankingManagementSystem.Models.Setup.Township;
+﻿namespace DotNet8.MiniBankingManagementSystem.Models.Features.Township;
 
 public class TownshipResponseModel
 {
