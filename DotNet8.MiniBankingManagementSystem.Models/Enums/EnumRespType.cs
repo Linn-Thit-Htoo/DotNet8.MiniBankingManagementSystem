@@ -1,10 +1,9 @@
-﻿namespace DotNet8.MiniBankingManagementSystem.Models.Enums
+﻿namespace DotNet8.MiniBankingManagementSystem.Models.Enums;
+
+public enum EnumRespType
 {
-    public enum EnumRespType
-    {
-        None,
-        Created,
-        Accepted,
-        Deleted
-    }
+    None,
+    Created,
+    Accepted,
+    Deleted
 }
