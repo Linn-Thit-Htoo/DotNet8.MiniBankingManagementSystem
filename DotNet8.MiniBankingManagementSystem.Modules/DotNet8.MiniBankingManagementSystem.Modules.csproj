@@ -10,7 +10,10 @@
     <Folder Include="Features\Withdraw\" />
     <Folder Include="Features\TransactionHistory\" />
     <Folder Include="Features\Township\" />
-    <Folder Include="Features\State\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
 
   <ItemGroup>
