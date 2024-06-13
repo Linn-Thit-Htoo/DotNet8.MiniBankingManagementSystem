@@ -1,4 +1,6 @@
-﻿namespace DotNet8.MiniBankingManagementSystem.Models.Setup.TransactionHistory;
+﻿using DotNet8.MiniBankingManagementSystem.Models.Setup.TransactionHistory;
+
+namespace DotNet8.MiniBankingManagementSystem.Models.Features.TransactionHistory;
 
 public class TransactionHistoryListResponseModel
 {
