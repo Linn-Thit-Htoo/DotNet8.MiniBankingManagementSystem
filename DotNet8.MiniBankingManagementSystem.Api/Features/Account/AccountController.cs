@@ -1,4 +1,5 @@
 ﻿using DotNet8.MiniBankingManagementSystem.Models.Features.Account;
+using DotNet8.MiniBankingManagementSystem.Modules.Features.Account;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DotNet8.MiniBankingManagementSystem.Api.Features.Account;
