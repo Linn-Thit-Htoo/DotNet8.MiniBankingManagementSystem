@@ -1,5 +1,6 @@
 ﻿using DotNet8.MiniBankingManagementSystem.DbService.Models;
 using DotNet8.MiniBankingManagementSystem.Models.Features.Account;
+using DotNet8.MiniBankingManagementSystem.Models.Features.Deposit;
 using DotNet8.MiniBankingManagementSystem.Models.Setup.Deposit;
 using DotNet8.MiniBankingManagementSystem.Models.Setup.State;
 using DotNet8.MiniBankingManagementSystem.Models.Setup.Township;
