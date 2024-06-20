@@ -13,7 +13,9 @@ public class DepositRequestModel
 
         if (AccountNo.IsNullOrEmpty())
         {
-            responseModel = Result<DepositResponseModel>.FailureResult("Account No cannot be empty.");
+            responseModel = Result<DepositResponseModel>.FailureResult(
+                "Account No cannot be empty."
+            );
             goto result;
         }
 
@@ -25,7 +27,7 @@ public class DepositRequestModel
 
         responseModel = Result<DepositResponseModel>.SuccessResult();
 
-    result:
+        result:
         return responseModel;
     }
 }
