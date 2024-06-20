@@ -26,7 +26,7 @@ public class DA_TransactionHistory
 
     #endregion
 
-    #region GetTransactionHistoryListByAccountNoAsync
+    #region Get Transaction History List By Account No Async
 
     public async Task<
         Result<TransactionHistoryListResponseModel>
