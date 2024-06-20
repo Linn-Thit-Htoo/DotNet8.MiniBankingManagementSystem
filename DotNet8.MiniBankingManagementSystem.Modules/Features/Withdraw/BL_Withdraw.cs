@@ -18,7 +18,9 @@ public class BL_Withdraw
 
     #region GetWithDrawListByAccountNoAsync
 
-    public async Task<Result<WithdrawListResponseModel>> GetWithDrawListByAccountNoAsync(string accountNo)
+    public async Task<Result<WithdrawListResponseModel>> GetWithDrawListByAccountNoAsync(
+        string accountNo
+    )
     {
         if (string.IsNullOrWhiteSpace(accountNo))
             throw new Exception("Account No cannot be empty.");
@@ -30,7 +32,9 @@ public class BL_Withdraw
 
     #region CreateWithDrawAsync
 
-    public async Task<Result<WithdrawResponseModel>> CreateWithDrawAsync(WithdrawRequestModel requestModel)
+    public async Task<Result<WithdrawResponseModel>> CreateWithDrawAsync(
+        WithdrawRequestModel requestModel
+    )
     {
         if (string.IsNullOrWhiteSpace(requestModel.AccountNo))
             throw new Exception("Account No cannot be empty.");
