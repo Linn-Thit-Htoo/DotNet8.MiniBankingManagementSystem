@@ -4,6 +4,7 @@ using DotNet8.MiniBankingManagementSystem.Modules.Features.State;
 using DotNet8.MiniBankingManagementSystem.Modules.Features.Township;
 using DotNet8.MiniBankingManagementSystem.Modules.Features.TransactionHistory;
 using DotNet8.MiniBankingManagementSystem.Modules.Features.Withdraw;
+using DotNet8.MiniBankingManagementSystem.Shared;
 
 namespace DotNet8.MiniBankingManagementSystem.Api;
 
@@ -20,7 +21,8 @@ public static class ModularService
             .AddJsonService()
             .AddDbContextServices(builder)
             .AddDataAccessServices()
-            .AddBusinessLogicServices();
+            .AddBusinessLogicServices()
+            .AddCustomServices();
         return services;
     }
 
@@ -92,4 +94,10 @@ public static class ModularService
     }
 
     #endregion
+
+    public static IServiceCollection AddCustomServices(this IServiceCollection services)
+    {
+        services.AddScoped<DapperService>();
+        return services;
+    }
 }

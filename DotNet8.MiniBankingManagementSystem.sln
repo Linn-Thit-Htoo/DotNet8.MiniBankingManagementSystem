@@ -20,9 +20,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Backend", "Backend", "{FC36
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{3A375D55-ABE8-4D97-A1B8-963916C10EEA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNet8.MiniBankingManagementSystem.Mapper", "DotNet8.MiniBankingManagementSystem.Mapper\DotNet8.MiniBankingManagementSystem.Mapper.csproj", "{C527E495-45C0-4354-A8DA-FEF735ABAE2D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNet8.MiniBankingManagementSystem.Mapper", "DotNet8.MiniBankingManagementSystem.Mapper\DotNet8.MiniBankingManagementSystem.Mapper.csproj", "{C527E495-45C0-4354-A8DA-FEF735ABAE2D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNet8.MiniBankingManagementSystem.Modules", "DotNet8.MiniBankingManagementSystem.Modules\DotNet8.MiniBankingManagementSystem.Modules.csproj", "{9FC0E57B-42FB-4EFF-8073-608CC2A29DF2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNet8.MiniBankingManagementSystem.Modules", "DotNet8.MiniBankingManagementSystem.Modules\DotNet8.MiniBankingManagementSystem.Modules.csproj", "{9FC0E57B-42FB-4EFF-8073-608CC2A29DF2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Reports", "Reports", "{F1108AAB-921F-47D9-9146-55DF423ED882}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNet8.MiniBankingManagementSystem.WindowForm", "DotNet8.MiniBankingManagementSystem.WindowForm\DotNet8.MiniBankingManagementSystem.WindowForm.csproj", "{A4F3A07B-6BB9-4439-A7F2-84E4EF7A96A2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNet8.MiniBankingManagementSystem.Shared", "DotNet8.MiniBankingManagementSystem.Shared\DotNet8.MiniBankingManagementSystem.Shared.csproj", "{C5C0FDEE-A72A-4FA7-BC25-055C983CB30C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -50,6 +56,14 @@ Global
 		{9FC0E57B-42FB-4EFF-8073-608CC2A29DF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9FC0E57B-42FB-4EFF-8073-608CC2A29DF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9FC0E57B-42FB-4EFF-8073-608CC2A29DF2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A4F3A07B-6BB9-4439-A7F2-84E4EF7A96A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4F3A07B-6BB9-4439-A7F2-84E4EF7A96A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4F3A07B-6BB9-4439-A7F2-84E4EF7A96A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4F3A07B-6BB9-4439-A7F2-84E4EF7A96A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5C0FDEE-A72A-4FA7-BC25-055C983CB30C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5C0FDEE-A72A-4FA7-BC25-055C983CB30C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5C0FDEE-A72A-4FA7-BC25-055C983CB30C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5C0FDEE-A72A-4FA7-BC25-055C983CB30C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -60,6 +74,8 @@ Global
 		{74608756-B195-4D3C-AE28-107F774ACA95} = {3A375D55-ABE8-4D97-A1B8-963916C10EEA}
 		{C527E495-45C0-4354-A8DA-FEF735ABAE2D} = {3A375D55-ABE8-4D97-A1B8-963916C10EEA}
 		{9FC0E57B-42FB-4EFF-8073-608CC2A29DF2} = {5A6C7771-53C1-4927-B565-A39152BDE10C}
+		{A4F3A07B-6BB9-4439-A7F2-84E4EF7A96A2} = {F1108AAB-921F-47D9-9146-55DF423ED882}
+		{C5C0FDEE-A72A-4FA7-BC25-055C983CB30C} = {3A375D55-ABE8-4D97-A1B8-963916C10EEA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C7265CDB-6041-4D20-9173-DC05417FFD97}

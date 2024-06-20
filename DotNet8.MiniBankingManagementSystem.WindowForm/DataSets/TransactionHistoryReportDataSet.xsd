@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="TransactionHistoryReportDataSet" targetNamespace="http://tempuri.org/TransactionHistoryReportDataSet.xsd" xmlns:mstns="http://tempuri.org/TransactionHistoryReportDataSet.xsd" xmlns="http://tempuri.org/TransactionHistoryReportDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="TransactionHistoryReportDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_UserDSName="TransactionHistoryReportDataSet" msprop:Generator_DataSetName="TransactionHistoryReportDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="TransactionHistoryReportDataSet" msprop:Generator_RowEvHandlerName="TransactionHistoryReportDataSetRowChangeEventHandler" msprop:Generator_RowDeletedName="TransactionHistoryReportDataSetRowDeleted" msprop:Generator_RowDeletingName="TransactionHistoryReportDataSetRowDeleting" msprop:Generator_RowEvArgName="TransactionHistoryReportDataSetRowChangeEvent" msprop:Generator_TablePropName="_TransactionHistoryReportDataSet" msprop:Generator_RowChangedName="TransactionHistoryReportDataSetRowChanged" msprop:Generator_RowChangingName="TransactionHistoryReportDataSetRowChanging" msprop:Generator_TableClassName="TransactionHistoryReportDataSetDataTable" msprop:Generator_RowClassName="TransactionHistoryReportDataSetRow" msprop:Generator_TableVarName="tableTransactionHistoryReportDataSet" msprop:Generator_UserTableName="TransactionHistoryReportDataSet">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="TransactionHistoryId" msprop:Generator_ColumnPropNameInRow="TransactionHistoryId" msprop:Generator_ColumnPropNameInTable="TransactionHistoryIdColumn" msprop:Generator_ColumnVarNameInTable="columnTransactionHistoryId" msprop:Generator_UserColumnName="TransactionHistoryId" type="xs:string" minOccurs="0" />
+              <xs:element name="Amount" msprop:Generator_ColumnPropNameInRow="Amount" msprop:Generator_ColumnPropNameInTable="AmountColumn" msprop:Generator_ColumnVarNameInTable="columnAmount" msprop:Generator_UserColumnName="Amount" type="xs:string" minOccurs="0" />
+              <xs:element name="TransactionDate" msprop:Generator_ColumnPropNameInRow="TransactionDate" msprop:Generator_ColumnPropNameInTable="TransactionDateColumn" msprop:Generator_ColumnVarNameInTable="columnTransactionDate" msprop:Generator_UserColumnName="TransactionDate" type="xs:string" minOccurs="0" />
+              <xs:element name="SenderName" msprop:Generator_ColumnPropNameInRow="SenderName" msprop:Generator_ColumnPropNameInTable="SenderNameColumn" msprop:Generator_ColumnVarNameInTable="columnSenderName" msprop:Generator_UserColumnName="SenderName" type="xs:string" minOccurs="0" />
+              <xs:element name="ReceiverName" msprop:Generator_ColumnPropNameInRow="ReceiverName" msprop:Generator_ColumnPropNameInTable="ReceiverNameColumn" msprop:Generator_ColumnVarNameInTable="columnReceiverName" msprop:Generator_UserColumnName="ReceiverName" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -7,6 +7,17 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <None Remove="ReportFiles\TransactionHistoryReport.rdlc" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <EmbeddedResource Include="ReportFiles\TransactionHistoryReport.rdlc">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </EmbeddedResource>
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="AspNetCore.Reporting" Version="2.1.0" />
 		<PackageReference Include="Dapper" Version="2.1.35" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.6" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.5" />
@@ -20,6 +31,7 @@
 		<ProjectReference Include="..\DotNet8.MiniBankingManagementSystem.DbService\DotNet8.MiniBankingManagementSystem.DbService.csproj" />
 		<ProjectReference Include="..\DotNet8.MiniBankingManagementSystem.Models\DotNet8.MiniBankingManagementSystem.Models.csproj" />
 		<ProjectReference Include="..\DotNet8.MiniBankingManagementSystem.Modules\DotNet8.MiniBankingManagementSystem.Modules.csproj" />
+		<ProjectReference Include="..\DotNet8.MiniBankingManagementSystem.Shared\DotNet8.MiniBankingManagementSystem.Shared.csproj" />
 	</ItemGroup>
 
 </Project>
