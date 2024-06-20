@@ -1,4 +1,5 @@
 ﻿using DotNet8.MiniBankingManagementSystem.Models.Enums;
+using DotNet8.MiniBankingManagementSystem.Models.Features;
 using DotNet8.MiniBankingManagementSystem.Models.Features.Account;
 using DotNet8.MiniBankingManagementSystem.Models.Resources;
 using DotNet8.MiniBankingManagementSystem.Modules.Features.Account;
@@ -20,17 +21,26 @@ public class AccountController : BaseController
     [HttpGet]
     public async Task<IActionResult> GetAccountList()
     {
-        return Content(await _bL_Account.GetAccountListAsync());
+        Result<AccountListResponseModel> responseModel;
+        try
+        {
+            responseModel = await _bL_Account.GetAccountListAsync();
+            return Ok(responseModel);
+        }
+        catch (Exception ex)
+        {
+            return HandleFailure(ex);
+        }
     }
 
     [HttpPost]
     public async Task<IActionResult> CreateAccount([FromBody] AccountRequestModel requestModel)
     {
+        Result<AccountResponseModel> responseModel;
         try
         {
-            int result = await _bL_Account.CreateAccount(requestModel);
-
-            return result > 0 ? Accepted(EnumRespType.Created) : BadRequest(MessageResource.SaveFail);
+            responseModel = await _bL_Account.CreateAccount(requestModel);
+            return Ok(responseModel);
         }
         catch (Exception ex)
         {

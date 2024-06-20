@@ -12,17 +12,17 @@ namespace DotNet8.MiniBankingManagementSystem.Models.Features
         public string Message { get; set; }
         public T Data { get; set; }
 
-        public static Result<T> SuccessResult(T data, string message = "Operation Successful.")
+        public static Result<T> SuccessResult(T data, string message = "Successful.")
         {
             return new Result<T> { Data = data, Message = message, Success = true };
         }
 
-        public static Result<T> SuccessResult(string message = "Operation Successful.")
+        public static Result<T> SuccessResult(string message = "Successful.")
         {
             return new Result<T> { Success = true, Message = message };
         }
 
-        public static Result<T> FailureResult(string message = "Operation Fail.")
+        public static Result<T> FailureResult(string message = "Fail.")
         {
             return new Result<T> { Success = false, Message = message };
         }
