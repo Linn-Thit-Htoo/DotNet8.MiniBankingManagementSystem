@@ -14,25 +14,31 @@ public class TransactionRequestModel
 
         if (FromAccountNo.IsNullOrEmpty())
         {
-            responseModel = Result<TransactionResponseModel>.FailureResult("From Account No cannot be empty.");
+            responseModel = Result<TransactionResponseModel>.FailureResult(
+                "From Account No cannot be empty."
+            );
             goto result;
         }
 
         if (ToAccountNo.IsNullOrEmpty())
         {
-            responseModel = Result<TransactionResponseModel>.FailureResult("To Account No cannot be empty.");
+            responseModel = Result<TransactionResponseModel>.FailureResult(
+                "To Account No cannot be empty."
+            );
             goto result;
         }
 
         if (Amount <= 0)
         {
-            responseModel = Result<TransactionResponseModel>.FailureResult("Amount cannot be empty.");
+            responseModel = Result<TransactionResponseModel>.FailureResult(
+                "Amount cannot be empty."
+            );
             goto result;
         }
 
         responseModel = Result<TransactionResponseModel>.SuccessResult();
 
-    result:
+        result:
         return responseModel;
     }
 }
