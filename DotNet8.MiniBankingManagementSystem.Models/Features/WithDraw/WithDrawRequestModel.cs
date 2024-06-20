@@ -13,7 +13,9 @@ public class WithdrawRequestModel
 
         if (AccountNo.IsNullOrEmpty())
         {
-            responseModel = Result<WithdrawResponseModel>.FailureResult("Account No cannot be empty.");
+            responseModel = Result<WithdrawResponseModel>.FailureResult(
+                "Account No cannot be empty."
+            );
             goto result;
         }
 
@@ -25,7 +27,7 @@ public class WithdrawRequestModel
 
         responseModel = Result<WithdrawResponseModel>.SuccessResult();
 
-    result:
+        result:
         return responseModel;
     }
 }
