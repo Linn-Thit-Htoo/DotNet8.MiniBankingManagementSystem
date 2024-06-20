@@ -1,4 +1,5 @@
-﻿using DotNet8.MiniBankingManagementSystem.Models.Features.Deposit;
+﻿using DotNet8.MiniBankingManagementSystem.Models.Features;
+using DotNet8.MiniBankingManagementSystem.Models.Features.Deposit;
 
 namespace DotNet8.MiniBankingManagementSystem.Modules.Features.Deposit;
 
@@ -17,7 +18,7 @@ public class BL_Deposit
 
     #region GetDepositListByAccountNoAsync
 
-    public async Task<DepositListResponseModel> GetDepositListByAccountNoAsync(string accountNo)
+    public async Task<Result<DepositListResponseModel>> GetDepositListByAccountNoAsync(string accountNo)
     {
         if (string.IsNullOrWhiteSpace(accountNo))
             throw new Exception("Account No cannot be empty.");
@@ -29,7 +30,7 @@ public class BL_Deposit
 
     #region CreateDepositAsync
 
-    public async Task<bool> CreateDepositAsync(DepositRequestModel requestModel)
+    public async Task<Result<DepositResponseModel>> CreateDepositAsync(DepositRequestModel requestModel)
     {
         if (string.IsNullOrWhiteSpace(requestModel.AccountNo))
             throw new Exception("Account No cannot be empty.");
@@ -37,8 +38,7 @@ public class BL_Deposit
         if (requestModel.Amount <= 0)
             throw new Exception("Amount is invalid.");
 
-        bool isSuccess = await _dA_Deposit.CreateDepositAsync(requestModel);
-        return isSuccess;
+        return await _dA_Deposit.CreateDepositAsync(requestModel);
     }
 
     #endregion

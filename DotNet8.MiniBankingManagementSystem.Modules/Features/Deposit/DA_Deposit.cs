@@ -1,6 +1,8 @@
 ﻿using DotNet8.MiniBankingManagementSystem.DbService.Models;
 using DotNet8.MiniBankingManagementSystem.Mapper;
+using DotNet8.MiniBankingManagementSystem.Models.Features;
 using DotNet8.MiniBankingManagementSystem.Models.Features.Deposit;
+using DotNet8.MiniBankingManagementSystem.Models.Resources;
 using Microsoft.EntityFrameworkCore;
 
 namespace DotNet8.MiniBankingManagementSystem.Modules.Features.Deposit;
@@ -20,8 +22,9 @@ public class DA_Deposit
 
     #region GetDepositListByAccountNoAsync
 
-    public async Task<DepositListResponseModel> GetDepositListByAccountNoAsync(string accountNo)
+    public async Task<Result<DepositListResponseModel>> GetDepositListByAccountNoAsync(string accountNo)
     {
+        Result<DepositListResponseModel> responseModel;
         try
         {
             var depositLst = await _appDbContext.Deposits
@@ -31,56 +34,67 @@ public class DA_Deposit
                 .ToListAsync();
 
             var lst = depositLst.Select(x => x.Change()).ToList();
-
-            return new DepositListResponseModel
+            var model = new DepositListResponseModel
             {
                 DataLst = lst
             };
+
+            responseModel = Result<DepositListResponseModel>.SuccessResult(model);
         }
         catch (Exception ex)
         {
-            throw new Exception(ex.Message);
+            responseModel = Result<DepositListResponseModel>.FailureResult(ex);
         }
+
+        return responseModel;
     }
 
     #endregion
 
     #region CreateDepositAsync
 
-    public async Task<bool> CreateDepositAsync(DepositRequestModel requestModel)
+    public async Task<Result<DepositResponseModel>> CreateDepositAsync(DepositRequestModel requestModel)
     {
         var transaction = await _appDbContext.Database.BeginTransactionAsync();
+        Result<DepositResponseModel> responseModel;
         try
         {
             var account = await _appDbContext.Accounts
                 .AsNoTracking()
-                .FirstOrDefaultAsync(x => x.AccountNo == requestModel.AccountNo && x.IsActive)
-                ?? throw new Exception("Account Not Found or Inactive.");
+                .FirstOrDefaultAsync(x => x.AccountNo == requestModel.AccountNo && x.IsActive);
+
+            if (account is null)
+            {
+                responseModel = Result<DepositResponseModel>.FailureResult(MessageResource.NotFound);
+                goto result;
+            }
 
             await _appDbContext.Deposits.AddAsync(requestModel.Change());
-            int result = await _appDbContext.SaveChangesAsync();
 
             decimal oldBalance = account.Balance;
             decimal newBalance = oldBalance + requestModel.Amount;
 
             account.Balance = newBalance;
             _appDbContext.Entry(account).State = EntityState.Modified;
-            int balanceUpdateResult = await _appDbContext.SaveChangesAsync();
+            int result = await _appDbContext.SaveChangesAsync();
 
-            if (result > 0 && balanceUpdateResult > 0)
+            responseModel = Result<DepositResponseModel>.ExecuteResult(result);
+            if (responseModel.Success)
             {
                 await transaction.CommitAsync();
-                return result > 0 && balanceUpdateResult > 0;
+                goto result;
             }
 
             await transaction.RollbackAsync();
-            return false;
         }
         catch (Exception ex)
         {
             await transaction.RollbackAsync();
-            return false;
+            responseModel = Result<DepositResponseModel>.FailureResult(ex);
         }
+
+    result:
+        return responseModel;
     }
 
     #endregion

@@ -21,11 +21,10 @@ public class AccountController : BaseController
     [HttpGet]
     public async Task<IActionResult> GetAccountList()
     {
-        Result<AccountListResponseModel> responseModel;
         try
         {
-            responseModel = await _bL_Account.GetAccountListAsync();
-            return Ok(responseModel);
+            var responseModel = await _bL_Account.GetAccountListAsync();
+            return Content(responseModel);
         }
         catch (Exception ex)
         {
@@ -36,11 +35,10 @@ public class AccountController : BaseController
     [HttpPost]
     public async Task<IActionResult> CreateAccount([FromBody] AccountRequestModel requestModel)
     {
-        Result<AccountResponseModel> responseModel;
         try
         {
-            responseModel = await _bL_Account.CreateAccount(requestModel);
-            return Ok(responseModel);
+            var responseModel = await _bL_Account.CreateAccount(requestModel);
+            return Content(responseModel);
         }
         catch (Exception ex)
         {

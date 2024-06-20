@@ -26,7 +26,8 @@ public class DepositController : BaseController
     {
         try
         {
-            return Content(await _bL_Deposit.GetDepositListByAccountNoAsync(accountNo));
+            var responseModel = await _bL_Deposit.GetDepositListByAccountNoAsync(accountNo);
+            return Content(responseModel);
         }
         catch (Exception ex)
         {
@@ -43,8 +44,8 @@ public class DepositController : BaseController
     {
         try
         {
-            bool isSuccess = await _bL_Deposit.CreateDepositAsync(requestModel);
-            return isSuccess ? StatusCode(201, "Successful.") : BadRequest("Fail.");
+            var responseModel = await _bL_Deposit.CreateDepositAsync(requestModel);
+            return Content(responseModel);
         }
         catch (Exception ex)
         {
