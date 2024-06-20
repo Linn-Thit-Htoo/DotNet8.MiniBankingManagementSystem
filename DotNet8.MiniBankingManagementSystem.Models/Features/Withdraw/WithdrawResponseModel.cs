@@ -6,7 +6,5 @@ using System.Threading.Tasks;
 
 namespace DotNet8.MiniBankingManagementSystem.Models.Features.Withdraw
 {
-    public class WithdrawResponseModel
-    {
-    }
+    public class WithdrawResponseModel { }
 }
