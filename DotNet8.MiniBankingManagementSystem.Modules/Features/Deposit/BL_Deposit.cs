@@ -18,7 +18,9 @@ public class BL_Deposit
 
     #region GetDepositListByAccountNoAsync
 
-    public async Task<Result<DepositListResponseModel>> GetDepositListByAccountNoAsync(string accountNo)
+    public async Task<Result<DepositListResponseModel>> GetDepositListByAccountNoAsync(
+        string accountNo
+    )
     {
         if (string.IsNullOrWhiteSpace(accountNo))
             throw new Exception("Account No cannot be empty.");
@@ -30,7 +32,9 @@ public class BL_Deposit
 
     #region CreateDepositAsync
 
-    public async Task<Result<DepositResponseModel>> CreateDepositAsync(DepositRequestModel requestModel)
+    public async Task<Result<DepositResponseModel>> CreateDepositAsync(
+        DepositRequestModel requestModel
+    )
     {
         if (string.IsNullOrWhiteSpace(requestModel.AccountNo))
             throw new Exception("Account No cannot be empty.");
