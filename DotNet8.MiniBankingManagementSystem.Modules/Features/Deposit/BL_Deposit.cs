@@ -16,7 +16,7 @@ public class BL_Deposit
 
     #endregion
 
-    #region GetDepositListByAccountNoAsync
+    #region Get Deposit List By Account No Async
 
     public async Task<Result<DepositListResponseModel>> GetDepositListByAccountNoAsync(
         string accountNo
