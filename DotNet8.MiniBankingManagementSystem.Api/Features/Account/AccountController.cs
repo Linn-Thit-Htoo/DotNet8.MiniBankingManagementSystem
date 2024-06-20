@@ -1,7 +1,4 @@
-﻿using DotNet8.MiniBankingManagementSystem.Models.Enums;
-using DotNet8.MiniBankingManagementSystem.Models.Features;
-using DotNet8.MiniBankingManagementSystem.Models.Features.Account;
-using DotNet8.MiniBankingManagementSystem.Models.Resources;
+﻿using DotNet8.MiniBankingManagementSystem.Models.Features.Account;
 using DotNet8.MiniBankingManagementSystem.Modules.Features.Account;
 using Microsoft.AspNetCore.Mvc;
 
