@@ -1,4 +1,5 @@
-﻿using DotNet8.MiniBankingManagementSystem.Models.Features.Township;
+﻿using DotNet8.MiniBankingManagementSystem.Models.Features;
+using DotNet8.MiniBankingManagementSystem.Models.Features.Township;
 
 namespace DotNet8.MiniBankingManagementSystem.Modules.Features.Township;
 
@@ -17,7 +18,7 @@ public class BL_Township
 
     #region GetTownshipListAsync
 
-    public async Task<TownshipResponseModel> GetTownshipListAsync()
+    public async Task<Result<TownshipListResponseModel>> GetTownshipListAsync()
     {
         return await _dA_Township.GetTownshipListAsync();
     }
@@ -26,10 +27,9 @@ public class BL_Township
 
     #region CreateTownshipListAsync
 
-    public async Task<int> CreateTownshipListAsync()
+    public async Task<Result<TownshipResponseModel>> CreateTownshipListAsync()
     {
-        int result = await _dA_Township.CreateTownshipListAsync();
-        return result;
+        return await _dA_Township.CreateTownshipListAsync();
     }
 
     #endregion

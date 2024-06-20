@@ -1,5 +1,6 @@
 ﻿using DotNet8.MiniBankingManagementSystem.DbService.Models;
 using DotNet8.MiniBankingManagementSystem.Mapper;
+using DotNet8.MiniBankingManagementSystem.Models.Features;
 using DotNet8.MiniBankingManagementSystem.Models.Features.Township;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
@@ -21,33 +22,54 @@ public class DA_Township
 
     #region GetTownshipListAsync
 
-    public async Task<TownshipResponseModel> GetTownshipListAsync()
+    public async Task<Result<TownshipListResponseModel>> GetTownshipListAsync()
     {
-        var townships = await _appDbContext.Townships
+        Result<TownshipListResponseModel> responseModel;
+        try
+        {
+            var townships = await _appDbContext.Townships
             .AsNoTracking()
             .OrderByDescending(x => x.TownshipId)
             .ToListAsync();
 
-        var lst = townships.Select(x => x.Change()).ToList();
+            var lst = townships.Select(x => x.Change()).ToList();
+            var model = new TownshipListResponseModel
+            {
+                DataLst = lst
+            };
 
-        return new TownshipResponseModel
+            responseModel = Result<TownshipListResponseModel>.SuccessResult(model);
+        }
+        catch (Exception ex)
         {
-            DataLst = lst
-        };
+            responseModel = Result<TownshipListResponseModel>.FailureResult(ex);
+        }
+
+        return responseModel;
     }
 
     #endregion
 
     #region CreateTownshipListAsync
 
-    public async Task<int> CreateTownshipListAsync()
+    public async Task<Result<TownshipResponseModel>> CreateTownshipListAsync()
     {
-        string jsonStr = await File.ReadAllTextAsync("Data/TownshipList.json");
-        List<DbService.Models.Township> lst = JsonConvert.DeserializeObject<List<DbService.Models.Township>>(jsonStr)!;
-        await _appDbContext.AddRangeAsync(lst);
-        int result = await _appDbContext.SaveChangesAsync();
+        Result<TownshipResponseModel> responseModel;
+        try
+        {
+            string jsonStr = await File.ReadAllTextAsync("Data/TownshipList.json");
+            List<DbService.Models.Township> lst = JsonConvert.DeserializeObject<List<DbService.Models.Township>>(jsonStr)!;
+            await _appDbContext.AddRangeAsync(lst);
+            int result = await _appDbContext.SaveChangesAsync();
 
-        return result;
+            responseModel = Result<TownshipResponseModel>.ExecuteResult(result);
+        }
+        catch (Exception ex)
+        {
+            responseModel = Result<TownshipResponseModel>.FailureResult(ex);
+        }
+
+        return responseModel;
     }
 
     #endregion

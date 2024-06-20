@@ -5,7 +5,7 @@ namespace DotNet8.MiniBankingManagementSystem.Api.Features.Township;
 
 [Route("api/v1/townships")]
 [ApiController]
-public class TownshipController : ControllerBase
+public class TownshipController : BaseController
 {
     #region Initializations
 
@@ -25,7 +25,7 @@ public class TownshipController : ControllerBase
     {
         try
         {
-            return Ok(await _bL_Township.GetTownshipListAsync());
+            return Content(await _bL_Township.GetTownshipListAsync());
         }
         catch (Exception ex)
         {
@@ -42,9 +42,8 @@ public class TownshipController : ControllerBase
     {
         try
         {
-            int result = await _bL_Township.CreateTownshipListAsync();
-
-            return result > 0 ? StatusCode(201, "Township Data Migration Successful.") : BadRequest("Fail.");
+            var responseModel = await _bL_Township.CreateTownshipListAsync();
+            return Content(responseModel);
         }
         catch (Exception ex)
         {

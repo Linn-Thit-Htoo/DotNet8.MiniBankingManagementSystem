@@ -1,6 +1,12 @@
-﻿namespace DotNet8.MiniBankingManagementSystem.Models.Features.Township;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-public class TownshipResponseModel
+namespace DotNet8.MiniBankingManagementSystem.Models.Features.Township
 {
-    public List<TownshipModel> DataLst { get; set; }
+    public class TownshipResponseModel
+    {
+    }
 }
