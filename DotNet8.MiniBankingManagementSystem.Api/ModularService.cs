@@ -1,9 +1,9 @@
-﻿using DotNet8.MiniBankingManagementSystem.Api.Features.Account;
-using DotNet8.MiniBankingManagementSystem.Api.Features.Deposit;
-using DotNet8.MiniBankingManagementSystem.Api.Features.State;
-using DotNet8.MiniBankingManagementSystem.Api.Features.Township;
-using DotNet8.MiniBankingManagementSystem.Api.Features.TransactionHistory;
-using DotNet8.MiniBankingManagementSystem.Api.Features.WithDraw;
+﻿using DotNet8.MiniBankingManagementSystem.Modules.Features.Account;
+using DotNet8.MiniBankingManagementSystem.Modules.Features.Deposit;
+using DotNet8.MiniBankingManagementSystem.Modules.Features.State;
+using DotNet8.MiniBankingManagementSystem.Modules.Features.Township;
+using DotNet8.MiniBankingManagementSystem.Modules.Features.TransactionHistory;
+using DotNet8.MiniBankingManagementSystem.Modules.Features.Withdraw;
 
 namespace DotNet8.MiniBankingManagementSystem.Api;
 
@@ -11,7 +11,10 @@ public static class ModularService
 {
     #region Add Services
 
-    public static IServiceCollection AddServices(this IServiceCollection services, WebApplicationBuilder builder)
+    public static IServiceCollection AddServices(
+        this IServiceCollection services,
+        WebApplicationBuilder builder
+    )
     {
         services
             .AddJsonService()
@@ -27,10 +30,12 @@ public static class ModularService
 
     private static IServiceCollection AddJsonService(this IServiceCollection services)
     {
-        services.AddControllers().AddJsonOptions(opt =>
-        {
-            opt.JsonSerializerOptions.PropertyNamingPolicy = null;
-        });
+        services
+            .AddControllers()
+            .AddJsonOptions(opt =>
+            {
+                opt.JsonSerializerOptions.PropertyNamingPolicy = null;
+            });
         return services;
     }
 
@@ -40,7 +45,8 @@ public static class ModularService
 
     private static IServiceCollection AddBusinessLogicServices(this IServiceCollection services)
     {
-        services.AddScoped<BL_Account>()
+        services
+            .AddScoped<BL_Account>()
             .AddScoped<BL_State>()
             .AddScoped<BL_Township>()
             .AddScoped<BL_Deposit>()
@@ -55,7 +61,8 @@ public static class ModularService
 
     private static IServiceCollection AddDataAccessServices(this IServiceCollection services)
     {
-        services.AddScoped<DA_Account>()
+        services
+            .AddScoped<DA_Account>()
             .AddScoped<DA_State>()
             .AddScoped<DA_Township>()
             .AddScoped<DA_Deposit>()
@@ -68,12 +75,19 @@ public static class ModularService
 
     #region Add DbContext Services
 
-    private static IServiceCollection AddDbContextServices(this IServiceCollection services, WebApplicationBuilder builder)
+    private static IServiceCollection AddDbContextServices(
+        this IServiceCollection services,
+        WebApplicationBuilder builder
+    )
     {
-        builder.Services.AddDbContext<AppDbContext>(opt =>
-        {
-            opt.UseSqlServer(builder.Configuration.GetConnectionString("DbConnection"));
-        }, ServiceLifetime.Transient, ServiceLifetime.Transient);
+        builder.Services.AddDbContext<AppDbContext>(
+            opt =>
+            {
+                opt.UseSqlServer(builder.Configuration.GetConnectionString("DbConnection"));
+            },
+            ServiceLifetime.Transient,
+            ServiceLifetime.Transient
+        );
         return services;
     }
 

@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using DotNet8.MiniBankingManagementSystem.Mapper;
 
 namespace DotNet8.MiniBankingManagementSystem.Modules.Features.TransactionHistory;
 
@@ -45,6 +46,7 @@ public class DA_TransactionHistory
             {
                 Amount = Math.Round(x.Amount),
                 ReceiverName = x.ReceiverName,
+                SenderName = x.SenderName,
                 TransactionDate = x.TransactionDate,
                 TransactionHistoryId = x.TransactionHistoryId
             }).ToList();
