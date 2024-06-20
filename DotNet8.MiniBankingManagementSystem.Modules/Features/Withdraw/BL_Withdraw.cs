@@ -1,4 +1,5 @@
-﻿using DotNet8.MiniBankingManagementSystem.Models.Features.WithDraw;
+﻿using DotNet8.MiniBankingManagementSystem.Models.Features;
+using DotNet8.MiniBankingManagementSystem.Models.Features.Withdraw;
 
 namespace DotNet8.MiniBankingManagementSystem.Modules.Features.Withdraw;
 
@@ -17,7 +18,7 @@ public class BL_Withdraw
 
     #region GetWithDrawListByAccountNoAsync
 
-    public async Task<WithDrawListResponseModel> GetWithDrawListByAccountNoAsync(string accountNo)
+    public async Task<Result<WithdrawListResponseModel>> GetWithDrawListByAccountNoAsync(string accountNo)
     {
         if (string.IsNullOrWhiteSpace(accountNo))
             throw new Exception("Account No cannot be empty.");
@@ -29,7 +30,7 @@ public class BL_Withdraw
 
     #region CreateWithDrawAsync
 
-    public async Task<bool> CreateWithDrawAsync(WithDrawRequestModel requestModel)
+    public async Task<Result<WithdrawResponseModel>> CreateWithDrawAsync(WithdrawRequestModel requestModel)
     {
         if (string.IsNullOrWhiteSpace(requestModel.AccountNo))
             throw new Exception("Account No cannot be empty.");

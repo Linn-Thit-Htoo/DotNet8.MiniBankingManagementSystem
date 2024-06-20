@@ -4,7 +4,7 @@ using DotNet8.MiniBankingManagementSystem.Models.Features.Deposit;
 using DotNet8.MiniBankingManagementSystem.Models.Features.State;
 using DotNet8.MiniBankingManagementSystem.Models.Features.Township;
 using DotNet8.MiniBankingManagementSystem.Models.Features.TransactionHistory;
-using DotNet8.MiniBankingManagementSystem.Models.Features.WithDraw;
+using DotNet8.MiniBankingManagementSystem.Models.Features.Withdraw;
 
 namespace DotNet8.MiniBankingManagementSystem.Mapper;
 
@@ -96,9 +96,9 @@ public static class ChangeModel
 
     #region WithDraw
 
-    public static WithDrawModel Change(this Withdraw dataModel)
+    public static WithdrawModel Change(this Withdraw dataModel)
     {
-        return new WithDrawModel()
+        return new WithdrawModel()
         {
             AccountNo = dataModel.AccountNo,
             WithDrawId = dataModel.WithDrawId,
@@ -107,7 +107,7 @@ public static class ChangeModel
         };
     }
 
-    public static Withdraw Change(this WithDrawRequestModel requestModel)
+    public static Withdraw Change(this WithdrawRequestModel requestModel)
     {
         return new Withdraw()
         {

@@ -1,6 +1,6 @@
-﻿namespace DotNet8.MiniBankingManagementSystem.Models.Features.WithDraw;
+﻿namespace DotNet8.MiniBankingManagementSystem.Models.Features.Withdraw;
 
-public class WithDrawListResponseModel
+public class WithdrawListResponseModel
 {
-    public List<WithDrawModel> DataLst { get; set; }
+    public List<WithdrawModel> DataLst { get; set; }
 }

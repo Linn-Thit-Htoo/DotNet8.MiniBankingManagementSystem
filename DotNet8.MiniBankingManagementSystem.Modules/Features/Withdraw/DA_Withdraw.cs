@@ -1,7 +1,9 @@
 ﻿using DotNet8.MiniBankingManagementSystem.DbService.Models;
-using DotNet8.MiniBankingManagementSystem.Models.Features.WithDraw;
 using Microsoft.EntityFrameworkCore;
 using DotNet8.MiniBankingManagementSystem.Mapper;
+using DotNet8.MiniBankingManagementSystem.Models.Features;
+using DotNet8.MiniBankingManagementSystem.Models.Features.Withdraw;
+using DotNet8.MiniBankingManagementSystem.Models.Resources;
 
 namespace DotNet8.MiniBankingManagementSystem.Modules.Features.Withdraw;
 
@@ -20,8 +22,9 @@ public class DA_Withdraw
 
     #region GetWithDrawListByAccountNoAsync
 
-    public async Task<WithDrawListResponseModel> GetWithDrawListByAccountNoAsync(string accountNo)
+    public async Task<Result<WithdrawListResponseModel>> GetWithDrawListByAccountNoAsync(string accountNo)
     {
+        Result<WithdrawListResponseModel> responseModel;
         try
         {
             var dataLst = await _appDbContext.Withdraws
@@ -31,25 +34,26 @@ public class DA_Withdraw
                 .ToListAsync();
 
             var lst = dataLst.Select(x => x.Change()).ToList();
+            var model = new WithdrawListResponseModel { DataLst = lst };
 
-            return new WithDrawListResponseModel
-            {
-                DataLst = lst
-            };
+            responseModel = Result<WithdrawListResponseModel>.SuccessResult(model);
         }
         catch (Exception ex)
         {
-            throw new Exception(ex.Message);
+            responseModel = Result<WithdrawListResponseModel>.FailureResult(ex);
         }
+
+        return responseModel;
     }
 
     #endregion
 
     #region CreateWithDrawAsync
 
-    public async Task<bool> CreateWithDrawAsync(WithDrawRequestModel requestModel)
+    public async Task<Result<WithdrawResponseModel>> CreateWithDrawAsync(WithdrawRequestModel requestModel)
     {
         var transaction = await _appDbContext.Database.BeginTransactionAsync();
+        Result<WithdrawResponseModel> responseModel;
         try
         {
             var account = await _appDbContext.Accounts
@@ -60,7 +64,8 @@ public class DA_Withdraw
             decimal oldBalance = account.Balance;
             if (requestModel.Amount > oldBalance)
             {
-                throw new Exception("Your balance is insufficient.");
+                responseModel = Result<WithdrawResponseModel>.SuccessResult("Your balance is insufficient.");
+                goto result;
             }
 
             decimal newBalance = oldBalance - requestModel.Amount;
@@ -74,17 +79,21 @@ public class DA_Withdraw
             if (accountUpdateResult > 0 && result > 0)
             {
                 await transaction.CommitAsync();
-                return accountUpdateResult > 0 && result > 0;
+                responseModel = Result<WithdrawResponseModel>.SuccessResult(MessageResource.SaveSuccess);
+                goto result;
             }
 
             await transaction.RollbackAsync();
-            return false;
+            responseModel = Result<WithdrawResponseModel>.FailureResult(MessageResource.SaveFail);
         }
         catch (Exception ex)
         {
             await transaction.RollbackAsync();
-            throw new Exception(ex.Message);
+            responseModel = Result<WithdrawResponseModel>.FailureResult(ex);
         }
+
+    result:
+        return responseModel;
     }
 
     #endregion

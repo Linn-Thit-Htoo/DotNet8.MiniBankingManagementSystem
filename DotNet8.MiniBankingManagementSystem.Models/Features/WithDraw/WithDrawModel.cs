@@ -1,6 +1,6 @@
-﻿namespace DotNet8.MiniBankingManagementSystem.Models.Features.WithDraw;
+﻿namespace DotNet8.MiniBankingManagementSystem.Models.Features.Withdraw;
 
-public class WithDrawModel
+public class WithdrawModel
 {
     public long WithDrawId { get; set; }
     public string AccountNo { get; set; } = null!;
