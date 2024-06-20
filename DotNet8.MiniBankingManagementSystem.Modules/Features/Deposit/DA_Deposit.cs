@@ -22,22 +22,21 @@ public class DA_Deposit
 
     #region GetDepositListByAccountNoAsync
 
-    public async Task<Result<DepositListResponseModel>> GetDepositListByAccountNoAsync(string accountNo)
+    public async Task<Result<DepositListResponseModel>> GetDepositListByAccountNoAsync(
+        string accountNo
+    )
     {
         Result<DepositListResponseModel> responseModel;
         try
         {
-            var depositLst = await _appDbContext.Deposits
-                .AsNoTracking()
+            var depositLst = await _appDbContext
+                .Deposits.AsNoTracking()
                 .Where(x => x.AccountNo == accountNo)
                 .OrderByDescending(x => x.DepositId)
                 .ToListAsync();
 
             var lst = depositLst.Select(x => x.Change()).ToList();
-            var model = new DepositListResponseModel
-            {
-                DataLst = lst
-            };
+            var model = new DepositListResponseModel { DataLst = lst };
 
             responseModel = Result<DepositListResponseModel>.SuccessResult(model);
         }
@@ -53,19 +52,23 @@ public class DA_Deposit
 
     #region CreateDepositAsync
 
-    public async Task<Result<DepositResponseModel>> CreateDepositAsync(DepositRequestModel requestModel)
+    public async Task<Result<DepositResponseModel>> CreateDepositAsync(
+        DepositRequestModel requestModel
+    )
     {
         var transaction = await _appDbContext.Database.BeginTransactionAsync();
         Result<DepositResponseModel> responseModel;
         try
         {
-            var account = await _appDbContext.Accounts
-                .AsNoTracking()
+            var account = await _appDbContext
+                .Accounts.AsNoTracking()
                 .FirstOrDefaultAsync(x => x.AccountNo == requestModel.AccountNo && x.IsActive);
 
             if (account is null)
             {
-                responseModel = Result<DepositResponseModel>.FailureResult(MessageResource.NotFound);
+                responseModel = Result<DepositResponseModel>.FailureResult(
+                    MessageResource.NotFound
+                );
                 goto result;
             }
 
@@ -93,7 +96,7 @@ public class DA_Deposit
             responseModel = Result<DepositResponseModel>.FailureResult(ex);
         }
 
-    result:
+        result:
         return responseModel;
     }
 
