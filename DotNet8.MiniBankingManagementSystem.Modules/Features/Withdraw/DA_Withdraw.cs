@@ -20,7 +20,7 @@ public class DA_Withdraw
 
     #endregion
 
-    #region GetWithDrawListByAccountNoAsync
+    #region Get With draw List By Account No Async
 
     public async Task<Result<WithdrawListResponseModel>> GetWithDrawListByAccountNoAsync(
         string accountNo
