@@ -17,7 +17,9 @@ public class AccountRequestModel
 
         if (CustomerName.IsNullOrEmpty())
         {
-            responseModel = Result<AccountResponseModel>.FailureResult("Customer Name cannot be empty.");
+            responseModel = Result<AccountResponseModel>.FailureResult(
+                "Customer Name cannot be empty."
+            );
             goto result;
         }
 
@@ -29,19 +31,23 @@ public class AccountRequestModel
 
         if (StateCode.IsNullOrEmpty())
         {
-            responseModel = Result<AccountResponseModel>.FailureResult("State Code cannot be empty.");
+            responseModel = Result<AccountResponseModel>.FailureResult(
+                "State Code cannot be empty."
+            );
             goto result;
         }
 
         if (TownshipCode.IsNullOrEmpty())
         {
-            responseModel = Result<AccountResponseModel>.FailureResult("Township Code cannot be empty.");
+            responseModel = Result<AccountResponseModel>.FailureResult(
+                "Township Code cannot be empty."
+            );
             goto result;
         }
 
         responseModel = Result<AccountResponseModel>.SuccessResult();
 
-    result:
+        result:
         return responseModel;
     }
 }
