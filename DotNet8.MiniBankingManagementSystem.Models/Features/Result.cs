@@ -8,7 +8,12 @@ public class Result<T>
 
     public static Result<T> SuccessResult(T data, string message = "Successful.")
     {
-        return new Result<T> { Data = data, Message = message, Success = true };
+        return new Result<T>
+        {
+            Data = data,
+            Message = message,
+            Success = true
+        };
     }
 
     public static Result<T> SuccessResult(string message = "Successful.")
