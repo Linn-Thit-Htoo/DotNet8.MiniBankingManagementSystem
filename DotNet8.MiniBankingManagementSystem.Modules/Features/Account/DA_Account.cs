@@ -27,18 +27,18 @@ public class DA_Account
         Result<AccountListResponseModel> responseModel;
         try
         {
-            var lst = await _context.Accounts
-                .AsNoTracking()
+            var lst = await _context
+                .Accounts.AsNoTracking()
                 .OrderByDescending(x => x.AccountId)
                 .ToListAsync();
 
             var accountLst = lst.Select(x => x.Change()).ToList();
-            var model = new AccountListResponseModel
-            {
-                DataLst = accountLst
-            };
+            var model = new AccountListResponseModel { DataLst = accountLst };
 
-            responseModel = Result<AccountListResponseModel>.SuccessResult(model, MessageResource.Success);
+            responseModel = Result<AccountListResponseModel>.SuccessResult(
+                model,
+                MessageResource.Success
+            );
         }
         catch (Exception ex)
         {
@@ -57,24 +57,26 @@ public class DA_Account
         Result<AccountResponseModel> responseModel;
         try
         {
-            bool isStatePresent = await _context.States
-                .AsNoTracking()
+            bool isStatePresent = await _context
+                .States.AsNoTracking()
                 .AnyAsync(x => x.StateCode == requestModel.StateCode);
             if (!isStatePresent)
                 throw new Exception("State does not exist.");
 
-            bool isTownshipPresent = await _context.Townships
-                .AsNoTracking()
+            bool isTownshipPresent = await _context
+                .Townships.AsNoTracking()
                 .AnyAsync(x => x.TownshipCode == requestModel.TownshipCode);
             if (!isTownshipPresent)
                 throw new Exception("Township does not exist.");
 
-            var townshipLst = await _context.Townships
-                .AsNoTracking()
+            var townshipLst = await _context
+                .Townships.AsNoTracking()
                 .Where(x => x.StateCode == requestModel.StateCode)
                 .ToListAsync();
 
-            bool isTownshipValid = townshipLst.Any(township => township.TownshipCode == requestModel.TownshipCode);
+            bool isTownshipValid = townshipLst.Any(township =>
+                township.TownshipCode == requestModel.TownshipCode
+            );
             if (!isTownshipValid)
                 throw new Exception("Township is invalid.");
 
@@ -99,8 +101,8 @@ public class DA_Account
 
     private async Task<string> GenerateCustomerCodeAsync()
     {
-        var latestCustomerCode = await _context.Accounts
-            .AsNoTracking()
+        var latestCustomerCode = await _context
+            .Accounts.AsNoTracking()
             .OrderByDescending(a => a.CustomerCode)
             .Select(a => a.CustomerCode)
             .FirstOrDefaultAsync();
@@ -121,5 +123,4 @@ public class DA_Account
     }
 
     #endregion
-
 }
