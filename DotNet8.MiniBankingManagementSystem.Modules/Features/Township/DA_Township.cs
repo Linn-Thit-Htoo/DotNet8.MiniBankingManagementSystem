@@ -20,7 +20,7 @@ public class DA_Township
 
     #endregion
 
-    #region GetTownshipListAsync
+    #region Get Township List Async
 
     public async Task<Result<TownshipListResponseModel>> GetTownshipListAsync()
     {
