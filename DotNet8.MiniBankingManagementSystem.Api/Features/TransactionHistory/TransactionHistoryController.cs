@@ -26,7 +26,9 @@ public class TransactionHistoryController : BaseController
     {
         try
         {
-            return Content(await _bL_TransactionHistory.GetTransactionHistoryListByAccountNoAsync(accountNo));
+            return Content(
+                await _bL_TransactionHistory.GetTransactionHistoryListByAccountNoAsync(accountNo)
+            );
         }
         catch (Exception ex)
         {
@@ -39,7 +41,9 @@ public class TransactionHistoryController : BaseController
     #region CreateTransaction
 
     [HttpPost]
-    public async Task<IActionResult> CreateTransaction([FromBody] TransactionRequestModel requestModel)
+    public async Task<IActionResult> CreateTransaction(
+        [FromBody] TransactionRequestModel requestModel
+    )
     {
         try
         {
