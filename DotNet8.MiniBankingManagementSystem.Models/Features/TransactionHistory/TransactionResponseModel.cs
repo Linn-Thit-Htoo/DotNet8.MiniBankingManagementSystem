@@ -9,7 +9,4 @@ public class TransactionDataModel
     public string ReceiverName { get; set; } = null!;
 }
 
-public class TransactionResponseModel
-{
-
-}
+public class TransactionResponseModel { }

@@ -1,5 +1,4 @@
-﻿
-namespace DotNet8.MiniBankingManagementSystem.Models.Features.TransactionHistory;
+﻿namespace DotNet8.MiniBankingManagementSystem.Models.Features.TransactionHistory;
 
 public class TransactionRequestModel
 {
