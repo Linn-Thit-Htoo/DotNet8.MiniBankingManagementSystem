@@ -1,9 +1,9 @@
 ﻿using DotNet8.MiniBankingManagementSystem.DbService.Models;
-using Microsoft.EntityFrameworkCore;
 using DotNet8.MiniBankingManagementSystem.Mapper;
 using DotNet8.MiniBankingManagementSystem.Models.Features;
 using DotNet8.MiniBankingManagementSystem.Models.Features.Withdraw;
 using DotNet8.MiniBankingManagementSystem.Models.Resources;
+using Microsoft.EntityFrameworkCore;
 
 namespace DotNet8.MiniBankingManagementSystem.Modules.Features.Withdraw;
 
@@ -22,13 +22,15 @@ public class DA_Withdraw
 
     #region GetWithDrawListByAccountNoAsync
 
-    public async Task<Result<WithdrawListResponseModel>> GetWithDrawListByAccountNoAsync(string accountNo)
+    public async Task<Result<WithdrawListResponseModel>> GetWithDrawListByAccountNoAsync(
+        string accountNo
+    )
     {
         Result<WithdrawListResponseModel> responseModel;
         try
         {
-            var dataLst = await _appDbContext.Withdraws
-                .AsNoTracking()
+            var dataLst = await _appDbContext
+                .Withdraws.AsNoTracking()
                 .Where(x => x.AccountNo == accountNo)
                 .OrderByDescending(x => x.WithDrawId)
                 .ToListAsync();
@@ -50,21 +52,26 @@ public class DA_Withdraw
 
     #region CreateWithDrawAsync
 
-    public async Task<Result<WithdrawResponseModel>> CreateWithDrawAsync(WithdrawRequestModel requestModel)
+    public async Task<Result<WithdrawResponseModel>> CreateWithDrawAsync(
+        WithdrawRequestModel requestModel
+    )
     {
         var transaction = await _appDbContext.Database.BeginTransactionAsync();
         Result<WithdrawResponseModel> responseModel;
         try
         {
-            var account = await _appDbContext.Accounts
-                .AsNoTracking()
-                .FirstOrDefaultAsync(x => x.AccountNo == requestModel.AccountNo && x.IsActive)
+            var account =
+                await _appDbContext
+                    .Accounts.AsNoTracking()
+                    .FirstOrDefaultAsync(x => x.AccountNo == requestModel.AccountNo && x.IsActive)
                 ?? throw new Exception("Account Not Found or Inactive.");
 
             decimal oldBalance = account.Balance;
             if (requestModel.Amount > oldBalance)
             {
-                responseModel = Result<WithdrawResponseModel>.SuccessResult("Your balance is insufficient.");
+                responseModel = Result<WithdrawResponseModel>.SuccessResult(
+                    "Your balance is insufficient."
+                );
                 goto result;
             }
 
@@ -79,7 +86,9 @@ public class DA_Withdraw
             if (accountUpdateResult > 0 && result > 0)
             {
                 await transaction.CommitAsync();
-                responseModel = Result<WithdrawResponseModel>.SuccessResult(MessageResource.SaveSuccess);
+                responseModel = Result<WithdrawResponseModel>.SuccessResult(
+                    MessageResource.SaveSuccess
+                );
                 goto result;
             }
 
@@ -92,7 +101,7 @@ public class DA_Withdraw
             responseModel = Result<WithdrawResponseModel>.FailureResult(ex);
         }
 
-    result:
+        result:
         return responseModel;
     }
 
