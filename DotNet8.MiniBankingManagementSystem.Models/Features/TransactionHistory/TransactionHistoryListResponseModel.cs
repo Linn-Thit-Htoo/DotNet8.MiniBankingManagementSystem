@@ -2,5 +2,5 @@
 
 public class TransactionHistoryListResponseModel
 {
-    public List<TransactionResponseModel> DataLst { get; set; }
+    public List<TransactionDataModel> DataLst { get; set; }
 }

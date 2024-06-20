@@ -6,7 +6,7 @@ namespace DotNet8.MiniBankingManagementSystem.Api.Features.TransactionHistory;
 
 [Route("api/v1/transaction-histories")]
 [ApiController]
-public class TransactionHistoryController : ControllerBase
+public class TransactionHistoryController : BaseController
 {
     #region Initializations
 
@@ -26,11 +26,11 @@ public class TransactionHistoryController : ControllerBase
     {
         try
         {
-            return Ok(await _bL_TransactionHistory.GetTransactionHistoryListByAccountNoAsync(accountNo));
+            return Content(await _bL_TransactionHistory.GetTransactionHistoryListByAccountNoAsync(accountNo));
         }
         catch (Exception ex)
         {
-            throw new Exception(ex.Message);
+            return HandleFailure(ex);
         }
     }
 
@@ -43,11 +43,12 @@ public class TransactionHistoryController : ControllerBase
     {
         try
         {
-            return await _bL_TransactionHistory.CreateTransactionAsync(requestModel) ? StatusCode(201, "Successful.") : BadRequest("Fail.");
+            var responseModel = await _bL_TransactionHistory.CreateTransactionAsync(requestModel);
+            return Content(responseModel);
         }
         catch (Exception ex)
         {
-            throw new Exception(ex.Message);
+            return HandleFailure(ex);
         }
     }
 

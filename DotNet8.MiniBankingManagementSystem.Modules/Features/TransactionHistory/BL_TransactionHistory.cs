@@ -1,4 +1,5 @@
-﻿using DotNet8.MiniBankingManagementSystem.Models.Features.TransactionHistory;
+﻿using DotNet8.MiniBankingManagementSystem.Models.Features;
+using DotNet8.MiniBankingManagementSystem.Models.Features.TransactionHistory;
 
 namespace DotNet8.MiniBankingManagementSystem.Modules.Features.TransactionHistory;
 
@@ -17,7 +18,7 @@ public class BL_TransactionHistory
 
     #region GetTransactionHistoryListByAccountNoAsync
 
-    public async Task<TransactionHistoryListResponseModel> GetTransactionHistoryListByAccountNoAsync(string accountNo)
+    public async Task<Result<TransactionHistoryListResponseModel>> GetTransactionHistoryListByAccountNoAsync(string accountNo)
     {
         if (string.IsNullOrWhiteSpace(accountNo))
             throw new Exception("Account No cannot be empty.");
@@ -29,7 +30,7 @@ public class BL_TransactionHistory
 
     #region CreateTransactionAsync
 
-    public async Task<bool> CreateTransactionAsync(TransactionRequestModel requestModel)
+    public async Task<Result<TransactionResponseModel>> CreateTransactionAsync(TransactionRequestModel requestModel)
     {
         if (string.IsNullOrEmpty(requestModel.FromAccountNo))
             throw new Exception("From Account No cannot be empty.");
