@@ -20,7 +20,7 @@ public class DA_Account
 
     #endregion
 
-    #region GetAccountListAsync
+    #region Get Account List Async
 
     public async Task<Result<AccountListResponseModel>> GetAccountListAsync()
     {
