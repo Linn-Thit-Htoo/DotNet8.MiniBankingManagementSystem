@@ -27,7 +27,7 @@ public class DepositRequestModel
 
         responseModel = Result<DepositResponseModel>.SuccessResult();
 
-        result:
+    result:
         return responseModel;
     }
 }
