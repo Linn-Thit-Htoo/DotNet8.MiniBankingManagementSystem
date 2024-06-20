@@ -47,6 +47,10 @@ public class TransactionHistoryController : BaseController
     {
         try
         {
+            var result = requestModel.IsValid();
+            if (!result.Success)
+                return BadRequest(result);
+
             var responseModel = await _bL_TransactionHistory.CreateTransactionAsync(requestModel);
             return Content(responseModel);
         }

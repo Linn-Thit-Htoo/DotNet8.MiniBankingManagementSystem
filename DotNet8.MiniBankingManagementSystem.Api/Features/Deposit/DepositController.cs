@@ -44,6 +44,10 @@ public class DepositController : BaseController
     {
         try
         {
+            var result = requestModel.IsValid();
+            if (!result.Success)
+                return BadRequest(result);
+
             var responseModel = await _bL_Deposit.CreateDepositAsync(requestModel);
             return Content(responseModel);
         }

@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DotNet8.MiniBankingManagementSystem.DbService\DotNet8.MiniBankingManagementSystem.DbService.csproj" />
+    <ProjectReference Include="..\DotNet8.MiniBankingManagementSystem.Shared\DotNet8.MiniBankingManagementSystem.Shared.csproj" />
   </ItemGroup>
 
 </Project>

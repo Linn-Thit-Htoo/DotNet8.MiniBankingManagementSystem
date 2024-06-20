@@ -29,18 +29,6 @@ public class BL_Account
 
     public async Task<Result<AccountResponseModel>> CreateAccount(AccountRequestModel requestModel)
     {
-        if (string.IsNullOrEmpty(requestModel.CustomerName))
-            throw new Exception("Customer Name cannot be empty.");
-
-        if (requestModel.Balance <= 0)
-            throw new Exception("Balance is invalid.");
-
-        if (string.IsNullOrEmpty(requestModel.StateCode))
-            throw new Exception("State Code cannot be empty.");
-
-        if (string.IsNullOrEmpty(requestModel.TownshipCode))
-            throw new Exception("Township Code cannot be empty.");
-
         return await _dA_Account.CreateAccount(requestModel);
     }
 

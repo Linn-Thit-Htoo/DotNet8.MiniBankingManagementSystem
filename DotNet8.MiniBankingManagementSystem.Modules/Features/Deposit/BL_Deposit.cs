@@ -36,12 +36,6 @@ public class BL_Deposit
         DepositRequestModel requestModel
     )
     {
-        if (string.IsNullOrWhiteSpace(requestModel.AccountNo))
-            throw new Exception("Account No cannot be empty.");
-
-        if (requestModel.Amount <= 0)
-            throw new Exception("Amount is invalid.");
-
         return await _dA_Deposit.CreateDepositAsync(requestModel);
     }
 

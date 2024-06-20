@@ -36,15 +36,6 @@ public class BL_TransactionHistory
         TransactionRequestModel requestModel
     )
     {
-        if (string.IsNullOrEmpty(requestModel.FromAccountNo))
-            throw new Exception("From Account No cannot be empty.");
-
-        if (string.IsNullOrEmpty(requestModel.ToAccountNo))
-            throw new Exception("From Account No cannot be empty.");
-
-        if (requestModel.Amount <= 0)
-            throw new Exception("Amount cannot be empty.");
-
         return await _dA_TransactionHistory.CreateTransactionAsync(requestModel);
     }
 
