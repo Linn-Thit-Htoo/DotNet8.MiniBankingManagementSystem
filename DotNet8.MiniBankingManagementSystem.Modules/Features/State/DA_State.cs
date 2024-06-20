@@ -1,5 +1,6 @@
 ﻿using DotNet8.MiniBankingManagementSystem.DbService.Models;
 using DotNet8.MiniBankingManagementSystem.Mapper;
+using DotNet8.MiniBankingManagementSystem.Models.Features;
 using DotNet8.MiniBankingManagementSystem.Models.Features.State;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
@@ -21,33 +22,54 @@ public class DA_State
 
     #region GetStateListAsync
 
-    public async Task<StateListResponseModel> GetStateListAsync()
+    public async Task<Result<StateListResponseModel>> GetStateListAsync()
     {
-        var states = await _appDbContext.States
+        Result<StateListResponseModel> responseModel;
+        try
+        {
+            var states = await _appDbContext.States
             .AsNoTracking()
             .OrderByDescending(x => x.StateId)
             .ToListAsync();
 
-        var lst = states.Select(x => x.Change()).ToList();
+            var lst = states.Select(x => x.Change()).ToList();
+            var model = new StateListResponseModel
+            {
+                DataLst = lst
+            };
 
-        return new StateListResponseModel
+            responseModel = Result<StateListResponseModel>.SuccessResult(model);
+        }
+        catch (Exception ex)
         {
-            DataLst = lst
-        };
+            responseModel = Result<StateListResponseModel>.FailureResult(ex);
+        }
+
+        return responseModel;
     }
 
     #endregion
 
     #region CreateStatesAsync
 
-    public async Task<int> CreateStatesAsync()
+    public async Task<Result<StateResponseModel>> CreateStatesAsync()
     {
-        string jsonStr = await File.ReadAllTextAsync("Data/StateList.json");
-        List<DbService.Models.State> lst = JsonConvert.DeserializeObject<List<DbService.Models.State>>(jsonStr)!;
-        await _appDbContext.States.AddRangeAsync(lst);
-        int result = await _appDbContext.SaveChangesAsync();
+        Result<StateResponseModel> responseModel;
+        try
+        {
+            string jsonStr = await File.ReadAllTextAsync("Data/StateList.json");
+            List<DbService.Models.State> lst = JsonConvert.DeserializeObject<List<DbService.Models.State>>(jsonStr)!;
+            await _appDbContext.States.AddRangeAsync(lst);
+            int result = await _appDbContext.SaveChangesAsync();
 
-        return result;
+            responseModel = Result<StateResponseModel>.ExecuteResult(result);
+        }
+        catch (Exception ex)
+        {
+            responseModel = Result<StateResponseModel>.FailureResult(ex);
+        }
+
+        return responseModel;
     }
 
     #endregion

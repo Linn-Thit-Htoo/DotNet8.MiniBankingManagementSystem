@@ -1,4 +1,5 @@
-﻿using DotNet8.MiniBankingManagementSystem.Models.Features.State;
+﻿using DotNet8.MiniBankingManagementSystem.Models.Features;
+using DotNet8.MiniBankingManagementSystem.Models.Features.State;
 
 namespace DotNet8.MiniBankingManagementSystem.Modules.Features.State;
 
@@ -17,7 +18,7 @@ public class BL_State
 
     #region GetStateListAsync
 
-    public async Task<StateListResponseModel> GetStateListAsync()
+    public async Task<Result<StateListResponseModel>> GetStateListAsync()
     {
         return await _dA_State.GetStateListAsync();
     }
@@ -26,10 +27,9 @@ public class BL_State
 
     #region CreateStatesAsync
 
-    public async Task<int> CreateStatesAsync()
+    public async Task<Result<StateResponseModel>> CreateStatesAsync()
     {
-        int result = await _dA_State.CreateStatesAsync();
-        return result;
+        return await _dA_State.CreateStatesAsync();
     }
 
     #endregion

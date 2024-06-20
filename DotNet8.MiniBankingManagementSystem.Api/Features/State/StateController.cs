@@ -5,7 +5,7 @@ namespace DotNet8.MiniBankingManagementSystem.Api.Features.State;
 
 [Route("api/v1/states")]
 [ApiController]
-public class StateController : ControllerBase
+public class StateController : BaseController
 {
     #region Initializations
 
@@ -25,11 +25,11 @@ public class StateController : ControllerBase
     {
         try
         {
-            return Ok(await _bL_State.GetStateListAsync());
+            return Content(await _bL_State.GetStateListAsync());
         }
         catch (Exception ex)
         {
-            throw new Exception(ex.Message);
+            return HandleFailure(ex);
         }
     }
 
@@ -42,13 +42,12 @@ public class StateController : ControllerBase
     {
         try
         {
-            int result = await _bL_State.CreateStatesAsync();
-
-            return result > 0 ? StatusCode(201, "State Data Migration Successful.") : BadRequest("Fail.");
+            var responseModel = await _bL_State.CreateStatesAsync();
+            return Content(responseModel);
         }
         catch (Exception ex)
         {
-            throw new Exception(ex.Message);
+            return HandleFailure(ex);
         }
     }
 
