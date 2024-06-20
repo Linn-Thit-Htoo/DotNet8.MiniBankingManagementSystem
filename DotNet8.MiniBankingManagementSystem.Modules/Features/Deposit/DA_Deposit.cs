@@ -20,7 +20,7 @@ public class DA_Deposit
 
     #endregion
 
-    #region GetDepositListByAccountNoAsync
+    #region Get Deposit List By Account No Async
 
     public async Task<Result<DepositListResponseModel>> GetDepositListByAccountNoAsync(
         string accountNo
@@ -96,7 +96,7 @@ public class DA_Deposit
             responseModel = Result<DepositResponseModel>.FailureResult(ex);
         }
 
-        result:
+    result:
         return responseModel;
     }
 
