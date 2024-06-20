@@ -29,7 +29,7 @@ public class TownshipController : BaseController
         }
         catch (Exception ex)
         {
-            throw new Exception(ex.Message);
+            return HandleFailure(ex);
         }
     }
 
@@ -47,7 +47,7 @@ public class TownshipController : BaseController
         }
         catch (Exception ex)
         {
-            throw new Exception(ex.Message);
+            return HandleFailure(ex);
         }
     }
 
