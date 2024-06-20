@@ -1,4 +1,5 @@
-﻿using DotNet8.MiniBankingManagementSystem.Models.Features.Account;
+﻿using DotNet8.MiniBankingManagementSystem.Models.Features;
+using DotNet8.MiniBankingManagementSystem.Models.Features.Account;
 
 namespace DotNet8.MiniBankingManagementSystem.Modules.Features.Account;
 
@@ -17,7 +18,7 @@ public class BL_Account
 
     #region GetAccountListAsync
 
-    public async Task<AccountListResponseModel> GetAccountListAsync()
+    public async Task<Result<AccountListResponseModel>> GetAccountListAsync()
     {
         return await _dA_Account.GetAccountListAsync();
     }
@@ -26,7 +27,7 @@ public class BL_Account
 
     #region CreateAccount
 
-    public async Task<int> CreateAccount(AccountRequestModel requestModel)
+    public async Task<Result<AccountResponseModel>> CreateAccount(AccountRequestModel requestModel)
     {
         if (string.IsNullOrEmpty(requestModel.CustomerName))
             throw new Exception("Customer Name cannot be empty.");
@@ -40,11 +41,7 @@ public class BL_Account
         if (string.IsNullOrEmpty(requestModel.TownshipCode))
             throw new Exception("Township Code cannot be empty.");
 
-        // validate state
-
-        int result = await _dA_Account.CreateAccount(requestModel);
-
-        return result;
+        return await _dA_Account.CreateAccount(requestModel);
     }
 
     #endregion

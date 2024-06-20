@@ -1,6 +1,8 @@
 ﻿using DotNet8.MiniBankingManagementSystem.DbService.Models;
 using DotNet8.MiniBankingManagementSystem.Mapper;
+using DotNet8.MiniBankingManagementSystem.Models.Features;
 using DotNet8.MiniBankingManagementSystem.Models.Features.Account;
+using DotNet8.MiniBankingManagementSystem.Models.Resources;
 using Microsoft.EntityFrameworkCore;
 
 namespace DotNet8.MiniBankingManagementSystem.Modules.Features.Account;
@@ -20,8 +22,9 @@ public class DA_Account
 
     #region GetAccountListAsync
 
-    public async Task<AccountListResponseModel> GetAccountListAsync()
+    public async Task<Result<AccountListResponseModel>> GetAccountListAsync()
     {
+        Result<AccountListResponseModel> responseModel;
         try
         {
             var lst = await _context.Accounts
@@ -30,23 +33,28 @@ public class DA_Account
                 .ToListAsync();
 
             var accountLst = lst.Select(x => x.Change()).ToList();
-            return new AccountListResponseModel()
+            var model = new AccountListResponseModel
             {
                 DataLst = accountLst
             };
+
+            responseModel = Result<AccountListResponseModel>.SuccessResult(model, MessageResource.Success);
         }
         catch (Exception ex)
         {
-            throw new Exception(ex.Message);
+            responseModel = Result<AccountListResponseModel>.FailureResult(ex);
         }
+
+        return responseModel;
     }
 
     #endregion
 
     #region CreateAccount
 
-    public async Task<int> CreateAccount(AccountRequestModel requestModel)
+    public async Task<Result<AccountResponseModel>> CreateAccount(AccountRequestModel requestModel)
     {
+        Result<AccountResponseModel> responseModel;
         try
         {
             bool isStatePresent = await _context.States
@@ -75,12 +83,14 @@ public class DA_Account
             await _context.Accounts.AddAsync(requestModel.Change());
             int result = await _context.SaveChangesAsync();
 
-            return result;
+            responseModel = Result<AccountResponseModel>.ExecuteResult(result);
         }
         catch (Exception ex)
         {
-            throw new Exception(ex.Message);
+            responseModel = Result<AccountResponseModel>.FailureResult(ex);
         }
+
+        return responseModel;
     }
 
     #endregion

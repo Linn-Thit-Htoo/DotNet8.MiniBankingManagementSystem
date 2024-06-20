@@ -32,7 +32,7 @@ namespace DotNet8.MiniBankingManagementSystem.Models.Features
             return new Result<T> { Success = false, Message = ex.ToString() };
         }
 
-        public Result<T> ExecuteResult(int result)
+        public static Result<T> ExecuteResult(int result)
         {
             return result > 0 ? Result<T>.SuccessResult() : Result<T>.FailureResult();
         }

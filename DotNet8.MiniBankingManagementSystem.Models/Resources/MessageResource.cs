@@ -2,6 +2,7 @@
 
 public static class MessageResource
 {
+    public static string Success { get; } = "Success";
     public static string SaveSuccess { get; } = "Saving Successful.";
     public static string SaveFail { get; } = "Saving Fail.";
     public static string NotFound { get; } = "No Data Found.";
