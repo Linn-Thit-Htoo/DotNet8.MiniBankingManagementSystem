@@ -27,16 +27,13 @@ public class DA_Township
         Result<TownshipListResponseModel> responseModel;
         try
         {
-            var townships = await _appDbContext.Townships
-            .AsNoTracking()
-            .OrderByDescending(x => x.TownshipId)
-            .ToListAsync();
+            var townships = await _appDbContext
+                .Townships.AsNoTracking()
+                .OrderByDescending(x => x.TownshipId)
+                .ToListAsync();
 
             var lst = townships.Select(x => x.Change()).ToList();
-            var model = new TownshipListResponseModel
-            {
-                DataLst = lst
-            };
+            var model = new TownshipListResponseModel { DataLst = lst };
 
             responseModel = Result<TownshipListResponseModel>.SuccessResult(model);
         }
@@ -58,7 +55,9 @@ public class DA_Township
         try
         {
             string jsonStr = await File.ReadAllTextAsync("Data/TownshipList.json");
-            List<DbService.Models.Township> lst = JsonConvert.DeserializeObject<List<DbService.Models.Township>>(jsonStr)!;
+            List<DbService.Models.Township> lst = JsonConvert.DeserializeObject<
+                List<DbService.Models.Township>
+            >(jsonStr)!;
             await _appDbContext.AddRangeAsync(lst);
             int result = await _appDbContext.SaveChangesAsync();
 
