@@ -27,16 +27,13 @@ public class DA_State
         Result<StateListResponseModel> responseModel;
         try
         {
-            var states = await _appDbContext.States
-            .AsNoTracking()
-            .OrderByDescending(x => x.StateId)
-            .ToListAsync();
+            var states = await _appDbContext
+                .States.AsNoTracking()
+                .OrderByDescending(x => x.StateId)
+                .ToListAsync();
 
             var lst = states.Select(x => x.Change()).ToList();
-            var model = new StateListResponseModel
-            {
-                DataLst = lst
-            };
+            var model = new StateListResponseModel { DataLst = lst };
 
             responseModel = Result<StateListResponseModel>.SuccessResult(model);
         }
@@ -58,7 +55,9 @@ public class DA_State
         try
         {
             string jsonStr = await File.ReadAllTextAsync("Data/StateList.json");
-            List<DbService.Models.State> lst = JsonConvert.DeserializeObject<List<DbService.Models.State>>(jsonStr)!;
+            List<DbService.Models.State> lst = JsonConvert.DeserializeObject<
+                List<DbService.Models.State>
+            >(jsonStr)!;
             await _appDbContext.States.AddRangeAsync(lst);
             int result = await _appDbContext.SaveChangesAsync();
 
