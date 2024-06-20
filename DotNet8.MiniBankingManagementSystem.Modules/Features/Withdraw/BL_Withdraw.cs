@@ -36,12 +36,6 @@ public class BL_Withdraw
         WithdrawRequestModel requestModel
     )
     {
-        if (string.IsNullOrWhiteSpace(requestModel.AccountNo))
-            throw new Exception("Account No cannot be empty.");
-
-        if (requestModel.Amount <= 0)
-            throw new Exception("Amount cannot be empty.");
-
         return await _dA_Withdraw.CreateWithDrawAsync(requestModel);
     }
 

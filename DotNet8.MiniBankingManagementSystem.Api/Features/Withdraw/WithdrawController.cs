@@ -39,6 +39,10 @@ public class WithdrawController : BaseController
     {
         try
         {
+            var result = requestModel.IsValid();
+            if (!result.Success)
+                return BadRequest(result);
+
             var responseModel = await _bL_Withdraw.CreateWithDrawAsync(requestModel);
             return Content(responseModel);
         }
