@@ -4,6 +4,10 @@
 
     partial class TransactionHistoryReportDataSet
     {
+        partial class SampleDataTableDataTable
+        {
+        }
+
         partial class TransactionHistoryReportDataSetDataTable
         {
         }
