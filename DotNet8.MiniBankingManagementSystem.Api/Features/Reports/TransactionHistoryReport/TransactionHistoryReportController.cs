@@ -1,10 +1,4 @@
-﻿global using System.Data;
-global using DotNet8.MiniBankingManagementSystem.Models.Enums;
-global using DotNet8.MiniBankingManagementSystem.Models.Features;
-global using DotNet8.MiniBankingManagementSystem.Models.Features.TransactionHistory;
-global using DotNet8.MiniBankingManagementSystem.Shared;
-
-namespace DotNet8.MiniBankingManagementSystem.Api.Features.Reports.TransactionHistoryReport;
+﻿namespace DotNet8.MiniBankingManagementSystem.Api.Features.Reports.TransactionHistoryReport;
 
 [Route("api/[controller]")]
 [ApiController]
@@ -33,7 +27,7 @@ public class TransactionHistoryReportController : BaseController
             ExportFileName = Guid.NewGuid().ToString(),
             ReportType = EnumFileType.Pdf,
             Parameters = null,
-            DataLst = lst
+            DataLst = lst,
         };
 
         return ExportReport(model);
