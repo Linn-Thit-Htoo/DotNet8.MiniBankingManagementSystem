@@ -1,7 +1,4 @@
-﻿using AspNetCore.Reporting;
-using DotNet8.MiniBankingManagementSystem.Models.Resources;
-
-namespace DotNet8.MiniBankingManagementSystem.Api.Features;
+﻿namespace DotNet8.MiniBankingManagementSystem.Api.Features;
 
 [Route("api/[controller]")]
 [ApiController]

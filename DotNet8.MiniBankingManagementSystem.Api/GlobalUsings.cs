@@ -18,3 +18,5 @@ global using DotNet8.MiniBankingManagementSystem.Modules.Features.Township;
 global using DotNet8.MiniBankingManagementSystem.Modules.Features.TransactionHistory;
 global using DotNet8.MiniBankingManagementSystem.Models.Features.Withdraw;
 global using DotNet8.MiniBankingManagementSystem.Modules.Features.Withdraw;
+global using AspNetCore.Reporting;
+global using DotNet8.MiniBankingManagementSystem.Models.Resources;
