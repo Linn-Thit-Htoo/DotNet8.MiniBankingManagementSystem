@@ -1,6 +1,4 @@
-﻿using DotNet8.MiniBankingManagementSystem.Modules.Features.State;
-
-namespace DotNet8.MiniBankingManagementSystem.Api.Features.State;
+﻿namespace DotNet8.MiniBankingManagementSystem.Api.Features.State;
 
 [Route("api/v1/states")]
 [ApiController]

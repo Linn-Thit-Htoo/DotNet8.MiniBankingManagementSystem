@@ -13,3 +13,4 @@ global using DotNet8.MiniBankingManagementSystem.Models.Enums;
 global using DotNet8.MiniBankingManagementSystem.Models.Features;
 global using DotNet8.MiniBankingManagementSystem.Models.Features.TransactionHistory;
 global using DotNet8.MiniBankingManagementSystem.Shared;
+global using DotNet8.MiniBankingManagementSystem.Modules.Features.State;
