@@ -1,12 +1,4 @@
-﻿using DotNet8.MiniBankingManagementSystem.Modules.Features.Account;
-using DotNet8.MiniBankingManagementSystem.Modules.Features.Deposit;
-using DotNet8.MiniBankingManagementSystem.Modules.Features.State;
-using DotNet8.MiniBankingManagementSystem.Modules.Features.Township;
-using DotNet8.MiniBankingManagementSystem.Modules.Features.TransactionHistory;
-using DotNet8.MiniBankingManagementSystem.Modules.Features.Withdraw;
-using DotNet8.MiniBankingManagementSystem.Shared;
-
-namespace DotNet8.MiniBankingManagementSystem.Api;
+﻿namespace DotNet8.MiniBankingManagementSystem.Api;
 
 public static class ModularService
 {
