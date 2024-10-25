@@ -1,8 +1,8 @@
-﻿using System.Data;
-using DotNet8.MiniBankingManagementSystem.Models.Enums;
-using DotNet8.MiniBankingManagementSystem.Models.Features;
-using DotNet8.MiniBankingManagementSystem.Models.Features.TransactionHistory;
-using DotNet8.MiniBankingManagementSystem.Shared;
+﻿global using System.Data;
+global using DotNet8.MiniBankingManagementSystem.Models.Enums;
+global using DotNet8.MiniBankingManagementSystem.Models.Features;
+global using DotNet8.MiniBankingManagementSystem.Models.Features.TransactionHistory;
+global using DotNet8.MiniBankingManagementSystem.Shared;
 
 namespace DotNet8.MiniBankingManagementSystem.Api.Features.Reports.TransactionHistoryReport;
 
