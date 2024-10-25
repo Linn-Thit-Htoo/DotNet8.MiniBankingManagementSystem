@@ -1,5 +1,3 @@
-using DotNet8.MiniBankingManagementSystem.Api;
-
 var builder = WebApplication.CreateBuilder(args);
 
 

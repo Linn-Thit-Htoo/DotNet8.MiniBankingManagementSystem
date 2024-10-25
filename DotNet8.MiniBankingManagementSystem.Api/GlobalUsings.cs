@@ -19,4 +19,5 @@ global using DotNet8.MiniBankingManagementSystem.Modules.Features.TransactionHis
 global using DotNet8.MiniBankingManagementSystem.Models.Features.Withdraw;
 global using DotNet8.MiniBankingManagementSystem.Modules.Features.Withdraw;
 global using AspNetCore.Reporting;
+global using DotNet8.MiniBankingManagementSystem.Api;
 global using DotNet8.MiniBankingManagementSystem.Models.Resources;
