@@ -1,6 +1,5 @@
 ﻿using DotNet8.MiniBankingManagementSystem.Models.Features.Withdraw;
 using DotNet8.MiniBankingManagementSystem.Modules.Features.Withdraw;
-using Microsoft.AspNetCore.Mvc;
 
 namespace DotNet8.MiniBankingManagementSystem.Api.Features.WithDraw;
 
