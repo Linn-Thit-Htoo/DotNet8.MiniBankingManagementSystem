@@ -1,5 +1,5 @@
-﻿using DotNet8.MiniBankingManagementSystem.Models.Features.Withdraw;
-using DotNet8.MiniBankingManagementSystem.Modules.Features.Withdraw;
+﻿global using DotNet8.MiniBankingManagementSystem.Models.Features.Withdraw;
+global using DotNet8.MiniBankingManagementSystem.Modules.Features.Withdraw;
 
 namespace DotNet8.MiniBankingManagementSystem.Api.Features.WithDraw;
 
