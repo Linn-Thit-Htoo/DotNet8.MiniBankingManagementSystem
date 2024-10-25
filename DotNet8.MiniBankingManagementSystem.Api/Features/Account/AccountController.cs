@@ -1,8 +1,4 @@
-﻿global using DotNet8.MiniBankingManagementSystem.Models.Features.Account;
-global using DotNet8.MiniBankingManagementSystem.Modules.Features.Account;
-global using Microsoft.AspNetCore.Mvc;
-
-namespace DotNet8.MiniBankingManagementSystem.Api.Features.Account;
+﻿namespace DotNet8.MiniBankingManagementSystem.Api.Features.Account;
 
 [Route("api/v1/accounts")]
 [ApiController]
