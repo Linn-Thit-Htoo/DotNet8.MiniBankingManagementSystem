@@ -16,3 +16,5 @@ global using DotNet8.MiniBankingManagementSystem.Shared;
 global using DotNet8.MiniBankingManagementSystem.Modules.Features.State;
 global using DotNet8.MiniBankingManagementSystem.Modules.Features.Township;
 global using DotNet8.MiniBankingManagementSystem.Modules.Features.TransactionHistory;
+global using DotNet8.MiniBankingManagementSystem.Models.Features.Withdraw;
+global using DotNet8.MiniBankingManagementSystem.Modules.Features.Withdraw;

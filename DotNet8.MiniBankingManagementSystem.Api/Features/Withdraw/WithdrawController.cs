@@ -1,7 +1,4 @@
-﻿global using DotNet8.MiniBankingManagementSystem.Models.Features.Withdraw;
-global using DotNet8.MiniBankingManagementSystem.Modules.Features.Withdraw;
-
-namespace DotNet8.MiniBankingManagementSystem.Api.Features.WithDraw;
+﻿namespace DotNet8.MiniBankingManagementSystem.Api.Features.WithDraw;
 
 [Route("api/v1/withdraws")]
 [ApiController]
