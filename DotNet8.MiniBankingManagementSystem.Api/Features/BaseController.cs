@@ -42,21 +42,41 @@ public class BaseController : ControllerBase
         {
             string mimetype = string.Empty;
             int extension = 100;
-            var path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ReportFiles", requestModel.ReportFileName + ".rdlc");
+            var path = Path.Combine(
+                AppDomain.CurrentDomain.BaseDirectory,
+                "ReportFiles",
+                requestModel.ReportFileName + ".rdlc"
+            );
             LocalReport lr = new LocalReport(path);
             lr.AddDataSource(requestModel.DataSetName, requestModel.DataLst);
 
             if (requestModel.ReportType == EnumFileType.Pdf)
             {
-                ReportResult result = lr.Execute(RenderType.Pdf, extension,
-                    requestModel.Parameters, mimetype);
-                return File(result.MainStream, "application/pdf", $"{requestModel.ExportFileName}.pdf");
+                ReportResult result = lr.Execute(
+                    RenderType.Pdf,
+                    extension,
+                    requestModel.Parameters,
+                    mimetype
+                );
+                return File(
+                    result.MainStream,
+                    "application/pdf",
+                    $"{requestModel.ExportFileName}.pdf"
+                );
             }
             else if (requestModel.ReportType == EnumFileType.Excel)
             {
-                ReportResult result = lr.Execute(RenderType.Excel, extension,
-                    requestModel.Parameters, mimetype);
-                return File(result.MainStream, "application/msexcel", $"{requestModel.ExportFileName}.xls");
+                ReportResult result = lr.Execute(
+                    RenderType.Excel,
+                    extension,
+                    requestModel.Parameters,
+                    mimetype
+                );
+                return File(
+                    result.MainStream,
+                    "application/msexcel",
+                    $"{requestModel.ExportFileName}.xls"
+                );
             }
         }
         catch (Exception ex)
