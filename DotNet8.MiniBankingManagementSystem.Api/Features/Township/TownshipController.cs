@@ -1,6 +1,4 @@
-﻿using DotNet8.MiniBankingManagementSystem.Modules.Features.Township;
-
-namespace DotNet8.MiniBankingManagementSystem.Api.Features.Township;
+﻿namespace DotNet8.MiniBankingManagementSystem.Api.Features.Township;
 
 [Route("api/v1/townships")]
 [ApiController]
