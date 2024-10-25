@@ -87,9 +87,13 @@ public static class ModularService
 
     #endregion
 
+    #region Add Custom Services
+
     public static IServiceCollection AddCustomServices(this IServiceCollection services)
     {
         services.AddScoped<DapperService>();
         return services;
     }
+
+    #endregion
 }
