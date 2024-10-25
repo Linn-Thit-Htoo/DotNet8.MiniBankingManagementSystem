@@ -1,5 +1,4 @@
 ﻿using DotNet8.MiniBankingManagementSystem.Modules.Features.State;
-using Microsoft.AspNetCore.Mvc;
 
 namespace DotNet8.MiniBankingManagementSystem.Api.Features.State;
 
