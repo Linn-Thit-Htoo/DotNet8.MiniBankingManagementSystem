@@ -1,5 +1,4 @@
 ﻿using DotNet8.MiniBankingManagementSystem.Modules.Features.Township;
-using Microsoft.AspNetCore.Mvc;
 
 namespace DotNet8.MiniBankingManagementSystem.Api.Features.Township;
 
