@@ -1,6 +1,4 @@
-﻿using DotNet8.MiniBankingManagementSystem.Models.Features.TransactionHistory;
-using DotNet8.MiniBankingManagementSystem.Modules.Features.TransactionHistory;
-using Microsoft.AspNetCore.Mvc;
+﻿using DotNet8.MiniBankingManagementSystem.Modules.Features.TransactionHistory;
 
 namespace DotNet8.MiniBankingManagementSystem.Api.Features.TransactionHistory;
 
